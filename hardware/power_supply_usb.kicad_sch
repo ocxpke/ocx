@@ -2750,6 +2750,12 @@
 		(uuid "48f037ed-1d9e-49db-89f5-175d0b9133dc")
 	)
 	(junction
+		(at 96.52 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "55613e50-6b78-4d6a-8f43-895ae6a65a2b")
+	)
+	(junction
 		(at 146.05 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2816,12 +2822,6 @@
 		(uuid "a0ec7ca7-a652-44ed-a0e9-70abe61c97cc")
 	)
 	(junction
-		(at 96.52 86.36)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b34997b3-8b99-4ee6-bfac-5463d4b3b731")
-	)
-	(junction
 		(at 74.93 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2837,7 +2837,7 @@
 		(at 93.98 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d80394c6-c20b-43d9-9df7-df12045bc0a4")
+		(uuid "d002fb28-dd53-40e4-91a9-bf85502db20d")
 	)
 	(junction
 		(at 196.85 92.71)
@@ -3168,6 +3168,16 @@
 			(type default)
 		)
 		(uuid "3f32cdc4-eb10-435e-a9b5-59398ccab63f")
+	)
+	(wire
+		(pts
+			(xy 96.52 86.36) (xy 96.52 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3fcb6bb0-acc4-42b2-b21a-99070c6a2e3f")
 	)
 	(wire
 		(pts
@@ -3541,16 +3551,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 86.36) (xy 106.68 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a0dd1ea2-38f4-417c-a24d-5f69a38a709e")
-	)
-	(wire
-		(pts
 			(xy 191.77 95.25) (xy 196.85 95.25)
 		)
 		(stroke
@@ -3771,16 +3771,6 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 107.95) (xy 110.49 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cef79a21-6aa4-4b56-bec5-66d31f453a36")
-	)
-	(wire
-		(pts
 			(xy 250.19 91.44) (xy 250.19 92.71)
 		)
 		(stroke
@@ -3831,13 +3821,23 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 86.36) (xy 96.52 88.9)
+			(xy 93.98 107.95) (xy 110.49 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d9e9a4c6-b3d4-4c91-bec2-731eec3e3fc8")
+		(uuid "ddfe049d-ee82-47a7-95e4-0fbe4033de97")
+	)
+	(wire
+		(pts
+			(xy 96.52 86.36) (xy 106.68 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "debc4ef2-66c5-47b5-b5a6-2ec510d7a399")
 	)
 	(wire
 		(pts
@@ -3988,6 +3988,26 @@
 			(justify left bottom)
 		)
 		(uuid "8eba15ef-ffba-4688-af82-7053e8692c55")
+	)
+	(label "USB_C_D+"
+		(at 97.79 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c6877777-0c2e-4aed-b464-d11ceb0f912e")
+	)
+	(label "USB_C_D-"
+		(at 97.79 86.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e8d0fba8-a2fb-4648-8d26-32c5d9dbc775")
 	)
 	(label "BUCK_CB"
 		(at 195.58 82.55 0)
