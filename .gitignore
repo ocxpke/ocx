@@ -1,0 +1,29 @@
+# KiCad temporary files and backups
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups/
+*-bak
+*~
+~*
+_autosave-*
+\#auto_saved_files\#
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+
+# Local project settings (view state, git integration) and local history
+*.kicad_prl
+.history/
+
+# DRC/ERC reports (regenerate them when needed)
+*.rpt
+
+# Netlist, autorouter and intermediate BOM exports
+*.net
+*.dsn
+*.ses
+*.xml

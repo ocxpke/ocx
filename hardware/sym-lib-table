@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "EVE_custom") (type "KiCad") (uri "${KIPRJMOD}/EVE_custom.kicad_sym") (options "") (descr ""))
+)
