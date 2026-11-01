@@ -1,0 +1,22 @@
+* 4) Filtro de audio AUDIO_L (BT817Q, PWM) -> R4/C10/R3/C29 -> C12 -> IN+ del PAM8302A
+* BOM: R4 = 3.3k, C10 = 10nF X7R, R3 = 1k, C29 = 4.7nF X7R, C12 = C13 = 0.22uF X7R
+* Supuestos: salida BT817 Rout = 40 Ohm; entrada PAM8302A = 10k internos a la referencia, ganancia 2*150k/10k
+.param r4=3.3k c10=10n r3=1k c29=4.7n
+Vs src 0 DC 1.65 AC 1
+Rout src a 40
+R4 a b {r4}
+C10 b 0 {c10}
+R3 b c {r3}
+C29 c 0 {c29}
+C12 c inp 0.22u
+Rinp inp 0 10k
+* IN- por C13 a GND (mismo 10k interno)
+.ac dec 200 10 10meg
+.control
+run
+let hin = v(inp)
+let gspk = 30*v(inp)
+wrdata %OUT% vdb(inp) vp(inp)
+quit
+.endc
+.end

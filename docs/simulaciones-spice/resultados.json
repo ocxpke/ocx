@@ -1,0 +1,699 @@
+{
+ "buck": {
+  "vnom": 3.3272727272727276,
+  "vout_50": 3.3272721408902,
+  "vout_500": 3.3272722734583002,
+  "t_arranque_10_90_ms": 1.595455,
+  "t_90_ms": 1.84965,
+  "sobreimpulso_arranque_mV": 5.3208127272723615,
+  "il_max_arranque_A": 0.500992996,
+  "rizado_50mA_mVpp": 9.772329999999663,
+  "rizado_500mA_mVpp": 2.741789999999966,
+  "il_pico_50mA": 0.498462518,
+  "il_pico_500mA": 0.728267159,
+  "caida_escalon_mV": -69.36119089020032,
+  "subida_liberacion_mV": 77.7392665416996,
+  "recuperacion_1pct_us": 32.139999999999944
+ },
+ "hotplug": [
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 6.82212053,
+   "ipico": 28.0980995
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.60819214,
+   "ipico": 29.0451409
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 5.03600406,
+   "ipico": 29.6267493
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 6.82168847,
+   "ipico": 28.0987379
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.60819447,
+   "ipico": 29.0457419
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 5.03601104,
+   "ipico": 29.6273264
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 6.73272333,
+   "ipico": 28.0987379
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 5.12028708,
+   "ipico": 18.3502709
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 4.53556466,
+   "ipico": 18.6801768
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.07454444,
+   "ipico": 18.8750688
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 5.1202674,
+   "ipico": 18.3505567
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 4.53555964,
+   "ipico": 18.6804413
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.07453879,
+   "ipico": 18.8753206
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 5.1202674,
+   "ipico": 18.3505567
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 7.00760747,
+   "ipico": 16.0520137
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.25575222,
+   "ipico": 17.0389899
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.50248973,
+   "ipico": 17.6860516
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 6.96656698,
+   "ipico": 16.0523819
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.25576336,
+   "ipico": 17.0393205
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.50250365,
+   "ipico": 17.6863555
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 6.77510205,
+   "ipico": 16.0523819
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 4.94850834,
+   "ipico": 7.91691326
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 3.58242774,
+   "ipico": 8.08137606
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 2.86156229,
+   "ipico": 8.17886736
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 4.94849374,
+   "ipico": 7.9170076
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 3.58240706,
+   "ipico": 8.08145777
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 2.86154744,
+   "ipico": 8.17894146
+  },
+  {
+   "vs": 5.0,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 4.94849374,
+   "ipico": 7.9170076
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 7.16322656,
+   "ipico": 29.5030044
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.88860175,
+   "ipico": 30.497398
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 5.28780426,
+   "ipico": 31.1080868
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 7.07880472,
+   "ipico": 29.503668
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.88860447,
+   "ipico": 30.4980223
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 5.28781171,
+   "ipico": 31.1086862
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 6.90925605,
+   "ipico": 29.503668
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 5.37630144,
+   "ipico": 19.2677845
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 4.76234289,
+   "ipico": 19.6141857
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.27827166,
+   "ipico": 19.8188223
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 5.37628119,
+   "ipico": 19.2680821
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 4.7623377,
+   "ipico": 19.6144611
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.27826583,
+   "ipico": 19.8190845
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 0.3,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 5.37628119,
+   "ipico": 19.2680821
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 7.35798784,
+   "ipico": 16.8546144
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.51853983,
+   "ipico": 17.8909393
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.72761421,
+   "ipico": 18.5703542
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 7.1275997,
+   "ipico": 16.854997
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 5.51855155,
+   "ipico": 17.8912828
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 4.72762871,
+   "ipico": 18.5706697
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG20",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 6.89545855,
+   "ipico": 16.854997
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "ninguno",
+   "vpico": 5.19593376,
+   "ipico": 8.31275892
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+47uF/0.47R",
+   "vpico": 3.76154913,
+   "ipico": 8.48544487
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "sin",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 3.0046404,
+   "ipico": 8.58781073
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "ninguno",
+   "vpico": 5.19591871,
+   "ipico": 8.31285733
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+47uF/0.47R",
+   "vpico": 3.76152775,
+   "ipico": 8.48553008
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA tip.",
+   "cambio": "+100uF ESR 0.3",
+   "vpico": 3.00462503,
+   "ipico": 8.587888
+  },
+  {
+   "vs": 5.25,
+   "cable_m": 1.0,
+   "cable": "AWG28",
+   "tvs": "P6SMB6.8CA min.",
+   "cambio": "ninguno",
+   "vpico": 5.19591871,
+   "ipico": 8.31285733
+  }
+ ],
+ "hotplug_barrido_esr_100uF": [
+  {
+   "esr": 0.05,
+   "cable_m": 0.3,
+   "vpico": 5.19094741
+  },
+  {
+   "esr": 0.05,
+   "cable_m": 1.0,
+   "vpico": 5.13490398
+  },
+  {
+   "esr": 0.15,
+   "cable_m": 0.3,
+   "vpico": 4.98540963
+  },
+  {
+   "esr": 0.15,
+   "cable_m": 1.0,
+   "vpico": 4.80433116
+  },
+  {
+   "esr": 0.3,
+   "cable_m": 0.3,
+   "vpico": 5.28781171
+  },
+  {
+   "esr": 0.3,
+   "cable_m": 1.0,
+   "vpico": 4.72762871
+  },
+  {
+   "esr": 0.6,
+   "cable_m": 0.3,
+   "vpico": 6.02918691
+  },
+  {
+   "esr": 0.6,
+   "cable_m": 1.0,
+   "vpico": 5.5774713
+  },
+  {
+   "esr": 1.0,
+   "cable_m": 0.3,
+   "vpico": 6.42331488
+  },
+  {
+   "esr": 1.0,
+   "cable_m": 1.0,
+   "vpico": 6.13329355
+  },
+  {
+   "esr": 2.0,
+   "cable_m": 0.3,
+   "vpico": 6.7677307
+  },
+  {
+   "esr": 2.0,
+   "cable_m": 1.0,
+   "vpico": 6.67317491
+  }
+ ],
+ "boost_60mA": {
+  "iled_mA": 60.60550106950909,
+  "iled_rizado_mApp": 3.435932121212119,
+  "vo": 21.21262946519,
+  "vo_rizado_mVpp": 39.75950000000239,
+  "il_pico": 0.354120388,
+  "il_min": 0.195234398,
+  "il_max_total": 1.00746888,
+  "vo_max": 21.2331647,
+  "p_r22_mW": 12.123701405278368
+ },
+ "boost_sin_carga": {
+  "vo_max": 37.2751862,
+  "vo_min_regimen": 37.2653298,
+  "vlx_max": 37.6609748,
+  "il_max": 0.924669637,
+  "vo_media": 37.26755416675233
+ },
+ "audio": {
+  "BOM: C10 = 10 nF, C29 = 4,7 nF": {
+   "pico_dB": -3.27014489,
+   "f_baja_3dB": 49.5450191,
+   "f_alta_3dB": 4365.15832,
+   "rel_dB_10k": -8.05643101,
+   "rel_dB_20k": -13.94577233012928,
+   "rel_dB_281k": -50.693709096939294,
+   "rel_dB_1M": -72.58648501
+  },
+  "cambio minimo: C10 = 4,7 nF": {
+   "pico_dB": -3.22425319,
+   "f_baja_3dB": 50.1187234,
+   "f_alta_3dB": 6606.93448,
+   "rel_dB_10k": -5.176933519999999,
+   "rel_dB_20k": -10.295759705948626,
+   "rel_dB_281k": -44.32361457309671,
+   "rel_dB_1M": -66.08611431
+  },
+  "recomendado: C10 = 4,7 nF, C29 = 2,2 nF": {
+   "pico_dB": -3.19657003,
+   "f_baja_3dB": 50.1187234,
+   "f_alta_3dB": 9225.71427,
+   "rel_dB_10k": -3.3660029199999997,
+   "rel_dB_20k": -7.65082937787996,
+   "rel_dB_281k": -38.12913941433942,
+   "rel_dB_1M": -59.55278946999999
+  }
+ },
+ "i2c": [
+  {
+   "rp": "1k",
+   "cb": "50p",
+   "tr_ns": 41.999999999999766,
+   "tf_ns": 2.2060999999994233,
+   "vol": 0.09611650489999998,
+   "isink_mA": 3.2038834951
+  },
+  {
+   "rp": "1k",
+   "cb": "100p",
+   "tr_ns": 85.00000000000003,
+   "tf_ns": 2.6432999999997175,
+   "vol": 0.09611650489999998,
+   "isink_mA": 3.2038834951
+  },
+  {
+   "rp": "1k",
+   "cb": "200p",
+   "tr_ns": 170.00000000000006,
+   "tf_ns": 5.000000000000799,
+   "vol": 0.09611650489999998,
+   "isink_mA": 3.2038834951
+  },
+  {
+   "rp": "1k",
+   "cb": "400p",
+   "tr_ns": 339.00000000000006,
+   "tf_ns": 10.999999999998709,
+   "vol": 0.09611650489999998,
+   "isink_mA": 3.2038834951
+  },
+  {
+   "rp": "4.7k",
+   "cb": "50p",
+   "tr_ns": 199.0000000000001,
+   "tf_ns": 2.2060999999994233,
+   "vol": 0.020930232599999994,
+   "isink_mA": 0.6976744185957446
+  },
+  {
+   "rp": "4.7k",
+   "cb": "100p",
+   "tr_ns": 399.00000000000034,
+   "tf_ns": 2.6432999999997175,
+   "vol": 0.020930232599999994,
+   "isink_mA": 0.6976744185957446
+  },
+  {
+   "rp": "4.7k",
+   "cb": "200p",
+   "tr_ns": 797.0000000000001,
+   "tf_ns": 5.000000000000799,
+   "vol": 0.020930232599999994,
+   "isink_mA": 0.6976744185957446
+  },
+  {
+   "rp": "4.7k",
+   "cb": "400p",
+   "tr_ns": 1593.0000000000002,
+   "tf_ns": 9.999999999999904,
+   "vol": 0.020930232599999994,
+   "isink_mA": 0.6976744185957446
+  }
+ ]
+}
