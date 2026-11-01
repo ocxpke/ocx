@@ -1,0 +1,67 @@
+* 1) LMR51430YDDCR (U6) - modelo conductual de modo corriente de pico (generico, NO oficial de TI)
+* Valores de la BOM: L3 = 2.2uH XAL4020-222MEC, C16 = C9 = 22uF 25V 0805, C15 = 10uF 25V 0805, C8 = C22 = 100nF,
+* R20 = 100k 1 %, R21 = 22k 1 %  ->  Vout = 0.6*(1+100/22) = 3.327 V
+.param fsw=1.1meg Tsw={1/fsw}
+.param Kc=2 Ipkmin=0.5 Ilim=4.5 Se=0.9meg  ; A/V, A, A, A/s (pendiente de compensacion)
+.param gm=1m Rc=24k Cc=560p Cp=12p tss=2m
+
+* Entrada: USB 5 V con 50 mOhm de cable+conector
+Vsrc vsrc 0 PWL(0 0 10u 5)
+Rsrc vsrc vin 0.05
+C15 vin c15n 7u        ; 10uF 0805 25V derrateado a ~7uF @5V (DC bias)
+Rc15 c15n 0 5m
+C8  vin 0 100n
+
+* Etapa de potencia
+S1 vin sw hs 0 SWH
+S2 sw 0 ls 0 SWL
+.model SWH sw vt=0.5 vh=0.05 ron=0.085 roff=10meg
+.model SWL sw vt=0.5 vh=0.05 ron=0.05  roff=10meg
+Dbody 0 sw DB
+.model DB d is=1e-9 n=1.5 rs=0.05
+L3 sw lx 2.2u ic=0
+Rdcr lx isn 0.021      ; DCR XAL4020-222 (~21 mOhm)
+Vsense isn out 0
+C16 out c16n 13u       ; 22uF 0805 derrateado a ~13uF @3.3V
+Rc16 c16n 0 3m
+C9  out c9n 13u
+Rc9 c9n 0 3m
+R20 out fb 100k
+R21 fb 0 22k
+
+* Carga: 50 mA fijos (66 Ohm) + escalon 450 mA a 6 ms (1 A/us) y vuelta a 7.5 ms
+Rload out 0 66.5
+Iload out 0 PWL(0 0 6m 0 6.00045m 0.45 7.5m 0.45 7.50045m 0)
+
+* Control
+Vsaw saw 0 PULSE(0 1 0 {Tsw-2n} 1n 0.5n {Tsw})
+Bref ref 0 V = 0.6*min(1, max(0, (time-50u)/{tss}))
+Gea 0 comp cur = {gm}*(V(ref)-V(fb))
+Rcz comp czn {Rc}
+Ccz czn 0 {Cc}
+Cpz comp 0 {Cp}
+Dclh comp vclh DCL
+Vclh vclh 0 2.4
+Dcll vcll comp DCL
+Vcll vcll 0 0.3
+.model DCL d is=1e-12 n=0.1
+* demanda de pico de corriente
+Bipk ipk 0 V = min({Ilim}, {Kc}*(V(comp)-0.5))
+Bset set 0 V = (V(saw) < 0.02 && V(ipk) - 0.02*{Se}*{Tsw} > {Ipkmin}*0.98 && V(vin) > 3.8) ? 1 : 0
+Breset rst 0 V = (V(saw) > 0.06 && (i(Vsense) > max(V(ipk) - {Se}*V(saw)*{Tsw}, {Ipkmin}) || V(saw) > 0.90)) ? 1 : 0
+Bq qx 0 V = V(set) > 0.5 ? 1 : (V(rst) > 0.5 ? 0 : (V(q) > 0.5 ? 1 : 0))
+Rq qx q 1k
+Cq q 0 1p
+Bhs hs 0 V = V(q) > 0.5 ? 1 : 0
+* rectificador sincrono con emulacion de diodo (variante PFM)
+Bls ls 0 V = (V(q) < 0.4 && i(Vsense) > 0.005) ? 1 : 0
+
+.options method=gear reltol=1e-3 abstol=1e-9 vntol=1e-5 itl4=100
+.tran 5n 8.5m 0 5n uic
+.control
+run
+linearize v(out) i(vsense) v(comp) v(vin)
+wrdata buck.dat v(out) i(vsense) v(comp) v(vin)
+quit
+.endc
+.end
