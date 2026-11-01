@@ -1,0 +1,16 @@
+menu "OCX"
+    config OCX_EVE_BOOT_HZ
+        int "SCLK del BT817 durante el arranque (Hz)"
+        default 8000000
+        range 1000000 11000000
+    config OCX_EVE_RUN_HZ
+        int "SCLK del BT817 en funcionamiento (Hz)"
+        default 20000000
+        range 1000000 30000000
+    config OCX_EVE_QUAD
+        bool "Usar QSPI (4 lineas) con el BT817"
+        default y
+    config OCX_BRINGUP_INTERACTIVE
+        bool "Pruebas interactivas (pulsar botones, mover joysticks, confirmar pitido)"
+        default y
+endmenu
