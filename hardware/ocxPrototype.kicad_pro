@@ -86,11 +86,15 @@
           ""
         ],
         [
-          "unconnected_items|207030000|111912500|F.Cu|4|03b23961-2cb6-41c9-ac5b-06b7aa5d034c|2665f4d8-e06c-4af1-b72f-e83c2c32667b",
+          "text_thickness|88400000|29800000|fd4bffce-56ec-4217-a3b8-e5703c622682|00000000-0000-0000-0000-000000000000",
           ""
         ],
         [
-          "unconnected_items|208930000|114187500|F.Cu|4|44f6399c-3095-4891-998b-3261f03f8672|1c9513a1-58af-415f-9441-4f815b49f254",
+          "unconnected_items|207030000|111912500|F.Cu|4|031f9ea4-71b0-4117-9510-4ca42ab6dced|e3b12215-dac6-4b36-8104-6c35e7e23c58",
+          ""
+        ],
+        [
+          "unconnected_items|208930000|114187500|F.Cu|4|5155d74f-bb82-497a-92bd-8aa07b1771c6|0aac3687-126d-48ff-9679-1c87f6533bf8",
           ""
         ]
       ],
@@ -722,6 +726,18 @@
         },
         {
           "group_by": true,
+          "label": "LCSC",
+          "name": "LCSC",
+          "show": true
+        },
+        {
+          "group_by": true,
+          "label": "MPN",
+          "name": "MPN",
+          "show": true
+        },
+        {
+          "group_by": true,
           "label": "DNP",
           "name": "${DNP}",
           "show": true
@@ -763,22 +779,10 @@
           "show": true
         },
         {
-          "group_by": true,
-          "label": "LCSC",
-          "name": "LCSC",
-          "show": true
-        },
-        {
           "group_by": false,
           "label": "Description",
           "name": "Description",
           "show": false
-        },
-        {
-          "group_by": true,
-          "label": "MPN",
-          "name": "MPN",
-          "show": true
         },
         {
           "group_by": false,
@@ -790,6 +794,18 @@
           "group_by": false,
           "label": "Sim.Pins",
           "name": "Sim.Pins",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KLC_S3.3",
+          "name": "KLC_S3.3",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KLC_S4.1",
+          "name": "KLC_S4.1",
           "show": false
         }
       ],
@@ -860,7 +876,7 @@
         "uuid": "00cac875-c54d-4e9b-9608-ca7d878bb3a3"
       }
     ],
-    "used_designators": "#FLG1-4,#PWR1-12,#PWR17-42,#PWR45-60,#PWR65-71,FB1-3,Y1,C1-39,D1-3,J1-10,L1-3,R1-16,R20-25,TP1-12,SW1-16,U1-8",
+    "used_designators": "U1-8,SW1-16,TP1-12,R1-16,R20-25,L1-3,J1-10,D1-3,C1-39,Y1,FB1-3,#PWR1-12,#PWR17-42,#PWR45-60,#PWR65-72,#FLG1-4",
     "variants": []
   },
   "sheets": [
