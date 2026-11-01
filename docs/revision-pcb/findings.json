@@ -1,0 +1,1484 @@
+{
+ "findings": [
+  {
+   "id": "acido-01",
+   "cat": "acido",
+   "sev": "revisar",
+   "title": "Ángulo agudo 45° en F.Cu (+3.3V)",
+   "where": "(118.64, 56.64)",
+   "detail": "Dos pistas de la red +3.3V (ancho 0.2 mm) se unen formando una cuña de 45°. Con el grabado moderno de JLCPCB no suele dar problemas, pero conviene suavizarlo a ≥90° (o con una lágrima).",
+   "bounds": [
+    116.14,
+    54.14,
+    121.14,
+    59.14
+   ],
+   "img": "capturas/acido-01.png"
+  },
+  {
+   "id": "acido-02",
+   "cat": "acido",
+   "sev": "revisar",
+   "title": "Ángulo agudo 45° en F.Cu (+5V)",
+   "where": "(208.58, 118.75)",
+   "detail": "Dos pistas de la red +5V (ancho 0.5 mm) se unen formando una cuña de 45°. Con el grabado moderno de JLCPCB no suele dar problemas, pero conviene suavizarlo a ≥90° (o con una lágrima).",
+   "bounds": [
+    206.08,
+    116.25,
+    211.08,
+    121.25
+   ],
+   "img": "capturas/acido-02.png"
+  },
+  {
+   "id": "acido-03",
+   "cat": "acido",
+   "sev": "revisar",
+   "title": "Ángulo agudo 45° en F.Cu (GND)",
+   "where": "(122.57, 49.33)",
+   "detail": "Dos pistas de la red GND (ancho 0.2 mm) se unen formando una cuña de 45°. Con el grabado moderno de JLCPCB no suele dar problemas, pero conviene suavizarlo a ≥90° (o con una lágrima).",
+   "bounds": [
+    120.07,
+    46.83,
+    125.07,
+    51.83
+   ],
+   "img": "capturas/acido-03.png"
+  },
+  {
+   "id": "acido-04",
+   "cat": "acido",
+   "sev": "revisar",
+   "title": "Ángulo agudo 45° en F.Cu (CTP_SDA)",
+   "where": "(112.70, 58.30)",
+   "detail": "Dos pistas de la red CTP_SDA (ancho 0.2 mm) se unen formando una cuña de 45°. Con el grabado moderno de JLCPCB no suele dar problemas, pero conviene suavizarlo a ≥90° (o con una lágrima).",
+   "bounds": [
+    110.2,
+    55.8,
+    115.2,
+    60.8
+   ],
+   "img": "capturas/acido-04.png"
+  },
+  {
+   "id": "astilla-01",
+   "cat": "astilla",
+   "sev": "revisar",
+   "title": "Cuello estrecho en plano GND (In1.Cu)",
+   "where": "(65.64, 110.46)",
+   "detail": "Tramo de relleno de ~0.26 mm de ancho y 1.2 mm de largo. No es una astilla suelta (el relleno ya respeta min_thickness 0,25 mm), pero es un estrechamiento del plano que conviene ensanchar o eliminar con una keep-out.",
+   "bounds": [
+    62.01787165704344,
+    107.25974751368204,
+    69.25964990266037,
+    113.605958
+   ],
+   "img": "capturas/astilla-01.png"
+  },
+  {
+   "id": "astilla-02",
+   "cat": "astilla",
+   "sev": "revisar",
+   "title": "Cuello estrecho en plano +3.3V (In2.Cu)",
+   "where": "(65.64, 110.46)",
+   "detail": "Tramo de relleno de ~0.26 mm de ancho y 1.2 mm de largo. No es una astilla suelta (el relleno ya respeta min_thickness 0,25 mm), pero es un estrechamiento del plano que conviene ensanchar o eliminar con una keep-out.",
+   "bounds": [
+    62.01787159853674,
+    107.25974751368204,
+    69.25964990266037,
+    113.605958
+   ],
+   "img": "capturas/astilla-02.png"
+  },
+  {
+   "id": "termico-01",
+   "cat": "termico",
+   "sev": "revisar",
+   "title": "C20: cobre asimétrico entre pads (riesgo de tombstoning)",
+   "where": "C20 (82.14, 83.70)",
+   "detail": "Pad 1 (+5V): 4 pistas (∑ancho 2.00 mm), 0 vía(s) en el pad. Pad 2 (GND): 1 pistas (∑ancho 0.50 mm), 0 vía(s). En reflujo un lado se calienta antes que el otro.",
+   "bounds": [
+    77.75750000000001,
+    80.22,
+    86.5175,
+    87.18
+   ],
+   "img": "capturas/termico-01.png"
+  },
+  {
+   "id": "termico-02",
+   "cat": "termico",
+   "sev": "revisar",
+   "title": "C15: cobre asimétrico entre pads (riesgo de tombstoning)",
+   "where": "C15 (197.18, 109.95)",
+   "detail": "Pad 1 (+5V): 3 pistas (∑ancho 2.40 mm), 0 vía(s) en el pad. Pad 2 (GND): 1 pistas (∑ancho 0.80 mm), 0 vía(s). En reflujo un lado se calienta antes que el otro.",
+   "bounds": [
+    192.8,
+    106.47,
+    201.56,
+    113.43
+   ],
+   "img": "capturas/termico-02.png"
+  },
+  {
+   "id": "termico-03",
+   "cat": "termico",
+   "sev": "revisar",
+   "title": "C10: cobre asimétrico entre pads (riesgo de tombstoning)",
+   "where": "C10 (32.69, 109.66)",
+   "detail": "Pad 1 (GND): 1 pistas (∑ancho 0.50 mm), 0 vía(s) en el pad. Pad 2 (Net-(C10-Pad2)): 3 pistas (∑ancho 1.50 mm), 0 vía(s). En reflujo un lado se calienta antes que el otro.",
+   "bounds": [
+    29.208758999999997,
+    105.276458,
+    36.168758999999994,
+    114.036458
+   ],
+   "img": "capturas/termico-03.png"
+  },
+  {
+   "id": "termico-04",
+   "cat": "termico",
+   "sev": "revisar",
+   "title": "C37: cobre asimétrico entre pads (riesgo de tombstoning)",
+   "where": "C37 (209.08, 117.15)",
+   "detail": "Pad 1 (+5V): 3 pistas (∑ancho 1.80 mm), 0 vía(s) en el pad. Pad 2 (GND): 1 pistas (∑ancho 0.50 mm), 0 vía(s). En reflujo un lado se calienta antes que el otro.",
+   "bounds": [
+    204.70000000000002,
+    113.67,
+    213.46,
+    120.63000000000001
+   ],
+   "img": "capturas/termico-04.png"
+  },
+  {
+   "id": "termico-05",
+   "cat": "termico",
+   "sev": "revisar",
+   "title": "C29: cobre asimétrico entre pads (riesgo de tombstoning)",
+   "where": "C29 (38.69, 109.66)",
+   "detail": "Pad 1 (Net-(C12-Pad1)): 3 pistas (∑ancho 1.50 mm), 0 vía(s) en el pad. Pad 2 (GND): 1 pistas (∑ancho 0.50 mm), 0 vía(s). En reflujo un lado se calienta antes que el otro.",
+   "bounds": [
+    35.208759,
+    105.276458,
+    42.168758999999994,
+    114.036458
+   ],
+   "img": "capturas/termico-05.png"
+  },
+  {
+   "id": "termico-06",
+   "cat": "termico",
+   "sev": "revisar",
+   "title": "C35: cobre asimétrico entre pads (riesgo de tombstoning)",
+   "where": "C35 (96.40, 91.50)",
+   "detail": "Pad 1 (/Screen_Ctrl/VCC_SCREEN): 5 pistas (∑ancho 2.30 mm), 0 vía(s) en el pad. Pad 2 (GND): 1 pistas (∑ancho 0.50 mm), 0 vía(s). En reflujo un lado se calienta antes que el otro.",
+   "bounds": [
+    92.02000000000001,
+    88.02,
+    100.78,
+    94.98
+   ],
+   "img": "capturas/termico-06.png"
+  },
+  {
+   "id": "termico-07",
+   "cat": "termico",
+   "sev": "revisar",
+   "title": "U1: 25 vías térmicas del EP conectadas con radios al plano GND (In1.Cu)",
+   "where": "U1 (120.30, 63.30)",
+   "detail": "Las vías de la almohadilla expuesta son pads de huella con la conexión a zona heredada (alivio térmico): el plano cubre solo ~58 % del anillo de cada vía. Para disipar conviene conexión maciza (zone_connect \"solid\" en esas vías / en la huella). Además las vías están en el pad sin tapar: parte de la pasta se irá por ellas (con 0,33 mm es aceptable; opción de \"via-in-pad\" taponado en JLCPCB si se quiere evitar).",
+   "bounds": [
+    115.1,
+    58.099999999999994,
+    125.5,
+    68.5
+   ],
+   "img": "capturas/termico-07.png"
+  },
+  {
+   "id": "altura-01",
+   "cat": "altura",
+   "sev": "revisar",
+   "title": "SW14 (SW_Reset) queda bajo la pantalla",
+   "where": "(130.55, 33.75)",
+   "detail": "Con la pantalla montada el pulsador no es accesible (solo con la pantalla quitada o con un agujero en la carcasa/pantalla).",
+   "bounds": [
+    118.55000000000001,
+    23.75,
+    136.05,
+    39.25
+   ],
+   "img": "capturas/altura-01.png"
+  },
+  {
+   "id": "altura-02",
+   "cat": "altura",
+   "sev": "revisar",
+   "title": "SW16 (SW_Boot) queda bajo la pantalla",
+   "where": "(171.35, 54.95)",
+   "detail": "Con la pantalla montada el pulsador no es accesible (solo con la pantalla quitada o con un agujero en la carcasa/pantalla).",
+   "bounds": [
+    157.85,
+    41.45,
+    183.35,
+    72.95
+   ],
+   "img": "capturas/altura-02.png"
+  },
+  {
+   "id": "altura-pantalla",
+   "cat": "altura",
+   "sev": "revisar",
+   "title": "Hueco mínimo bajo la pantalla ≈ 13.4 mm (DevKit)",
+   "where": "zona central",
+   "detail": "La pantalla (120,7 × 75,8 mm) no cabe entre los grupos de botones sin solaparse con la DevKit. La pila socket 8.5 + PCB DevKit 1,6 + módulo/USB ~3,3 ≈ 13.4 mm marca la separación mínima PCB→trasera de la pantalla. Sin la DevKit el más alto sería SW14.",
+   "bounds": [
+    14.0,
+    12.5,
+    246.0,
+    131.900317
+   ],
+   "img": "capturas/altura-pantalla.png"
+  },
+  {
+   "id": "serigrafia-01",
+   "cat": "serigrafia",
+   "sev": "bien",
+   "title": "J3: marca de pin 1 (revisada a mano)",
+   "where": "(167.46, 77.48)",
+   "detail": "El script no la distingue por simetría de la serigrafía; revisión visual: Esquina en L junto al pin 1 y pad cuadrado. Ojo: J3 está girado 180°, su pin 1 queda abajo y el de J2 arriba.",
+   "bounds": [
+    163.96,
+    73.98,
+    170.96,
+    80.98
+   ],
+   "img": "capturas/serigrafia-01.png"
+  },
+  {
+   "id": "serigrafia-02",
+   "cat": "serigrafia",
+   "sev": "bien",
+   "title": "J5: marca de pin 1 (revisada a mano)",
+   "where": "(65.64, 111.46)",
+   "detail": "El script no la distingue por simetría de la serigrafía; revisión visual: Esquina en L junto al pin 1 y pad 1 rectangular; el conector JST PH está polarizado por la carcasa.",
+   "bounds": [
+    62.13875899999999,
+    107.956458,
+    69.138759,
+    114.956458
+   ],
+   "img": "capturas/serigrafia-02.png"
+  },
+  {
+   "id": "serigrafia-03",
+   "cat": "serigrafia",
+   "sev": "bien",
+   "title": "Y1: marca de pin 1 (revisada a mano)",
+   "where": "(121.57, 52.18)",
+   "detail": "El script no la distingue por simetría de la serigrafía; revisión visual: La huella 5032 marca el pin 1 con la línea lateral extra en la esquina del pin 1 (abajo-derecha en la captura). Además, girar el cristal 180° es inocuo (1↔3 y 2↔4 = GND); solo 90° sería un error.",
+   "bounds": [
+    119.07,
+    50.33,
+    126.07,
+    57.33
+   ],
+   "img": "capturas/serigrafia-03.png"
+  },
+  {
+   "id": "serigrafia-04",
+   "cat": "serigrafia",
+   "sev": "bien",
+   "title": "J10: marca de pin 1 (revisada a mano)",
+   "where": "(208.48, 126.25)",
+   "detail": "El script no la distingue por simetría de la serigrafía; revisión visual: USB-C: no necesita marca de pin 1, la carcasa y los pines de anclaje fijan la orientación.",
+   "bounds": [
+    201.73,
+    118.705,
+    208.73,
+    125.705
+   ],
+   "img": "capturas/serigrafia-04.png"
+  },
+  {
+   "id": "serigrafia-05",
+   "cat": "serigrafia",
+   "sev": "bien",
+   "title": "J2: marca de pin 1 (revisada a mano)",
+   "where": "(144.60, 24.14)",
+   "detail": "El script no la distingue por simetría de la serigrafía; revisión visual: Esquina en L junto al pin 1 y pad cuadrado (marca de la librería KiCad).",
+   "bounds": [
+    141.1,
+    20.64,
+    148.1,
+    27.64
+   ],
+   "img": "capturas/serigrafia-05.png"
+  },
+  {
+   "id": "serigrafia-06",
+   "cat": "serigrafia",
+   "sev": "revisar",
+   "title": "D1 (P6SMB6.8CA) bidireccional con marca de cátodo",
+   "where": "(203.40, 113.00)",
+   "detail": "El TVS es bidireccional (CA), así que la orientación no importa eléctricamente, pero la huella D_SMB dibuja la marca de cátodo; puede inducir dudas en montaje/inspección. Opcional: huella sin marca o nota \"BIDIR\".",
+   "bounds": [
+    199.15,
+    106.3,
+    207.65,
+    119.7
+   ],
+   "img": "capturas/serigrafia-06.png"
+  },
+  {
+   "id": "serigrafia-07",
+   "cat": "serigrafia",
+   "sev": "bien",
+   "title": "D2 (GREEN): marca en el cátodo (pad 1 = Net-(D2-K))",
+   "where": "(229.90, 113.30)",
+   "detail": "La serigrafía cierra el lado del pad K. Es la marca estándar de KiCad (corchete), sin barra ni \"K\"; se lee bien pero es discreta.",
+   "bounds": [
+    226.05,
+    110.35,
+    233.75,
+    116.25
+   ],
+   "img": "capturas/serigrafia-07.png"
+  },
+  {
+   "id": "serigrafia-08",
+   "cat": "serigrafia",
+   "sev": "bien",
+   "title": "D3 (SS210): marca en el cátodo (pad 1 = /Screen_Ctrl/VLED+)",
+   "where": "(93.84, 85.80)",
+   "detail": "La serigrafía cierra el lado del pad K. Es la marca estándar de KiCad (corchete), sin barra ni \"K\"; se lee bien pero es discreta.",
+   "bounds": [
+    87.3375,
+    82.05,
+    100.3375,
+    89.55
+   ],
+   "img": "capturas/serigrafia-08.png"
+  },
+  {
+   "id": "serigrafia-devkit",
+   "cat": "serigrafia",
+   "sev": "revisar",
+   "title": "Sin contorno ni orientación de la DevKit en serigrafía",
+   "where": "J2/J3",
+   "detail": "Los dos zócalos 1×22 son iguales y la DevKit entra también girada 180°: con ello 5V/3V3/GND caen en pines equivocados y se puede dañar la placa. En la serigrafía solo aparece J2, J3; los nombres ESP32_S3_DEVKIT_LEFT/RIGHT están en F.Fab. Recomendado: contorno de la DevKit, flecha \"ANTENA →\" hacia el recorte y rótulos 3V3/5V/GND en los extremos de los zócalos. Prioridad alta (montaje manual).",
+   "bounds": [
+    140.33,
+    12.940000000000001,
+    171.73,
+    81.98
+   ],
+   "img": "capturas/serigrafia-devkit.png"
+  },
+  {
+   "id": "serigrafia-botones",
+   "cat": "serigrafia",
+   "sev": "revisar",
+   "title": "16/16 pulsadores sin su nombre en serigrafía",
+   "where": "SW1–SW16",
+   "detail": "En F.SilkS solo aparece la referencia (SW1, SW10…). El nombre funcional (BTN_X, BTN_A_UP, SW_Boot…) está en F.Fab, que no se fabrica. Para montar, probar y depurar conviene ver el nombre: SW14=SW_Reset, SW10=BTN_X, SW5=BTN_A_DW, SW11=BTN_O, SW9=BTN_HOME, SW8=BTN_VOL_+, SW7=BTN_VOL_-, SW1=BTN_T_L, SW6=BTN_SLCT, SW13=BTN_T, SW16=SW_Boot, SW2=BTN_A_UP, SW3=BTN_A_R, SW4=BTN_A_L, SW15=BTN_T_R, SW12=BTN_C.",
+   "bounds": [
+    196,
+    22,
+    244,
+    72
+   ],
+   "img": "capturas/serigrafia-botones.png"
+  }
+ ],
+ "summary": {
+  "min_pad_gap_between_parts": [
+   0.37999999999999545,
+   "C5.1",
+   "C4.1"
+  ],
+  "min_mask_web_same_part": [
+   0.19999999999998863,
+   "J7.1",
+   "J7.2"
+  ],
+  "courtyard_overlaps": 0,
+  "edge_pads": [],
+  "mounting_hole_conflicts": 0,
+  "acid_traps_total": 4,
+  "acid_traps_lt60": 4,
+  "acid_traps_60_90": 0,
+  "slivers": 2,
+  "tht_on_planes": 68,
+  "tht_on_planes_solid": 0,
+  "tht_planes_detail": [
+   {
+    "pad": "SW14.1",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW14.1",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW10.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW10.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW5.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW5.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW11.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW11.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW9.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW9.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "J3.1",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.18
+   },
+   {
+    "pad": "J3.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.29
+   },
+   {
+    "pad": "J3.22",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.29
+   },
+   {
+    "pad": "SW8.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW8.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW7.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW7.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW1.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW1.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW6.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW6.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW13.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW13.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW16.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW16.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "TP2.1",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "J10.SH",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.29
+   },
+   {
+    "pad": "J10.SH",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.34
+   },
+   {
+    "pad": "J10.SH",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.29
+   },
+   {
+    "pad": "J10.SH",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.34
+   },
+   {
+    "pad": "SW2.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW2.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW3.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW3.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW4.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW4.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "U1.65",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.58
+   },
+   {
+    "pad": "SW15.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW15.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "J2.1",
+    "net": "+3.3V",
+    "layer": "In2.Cu",
+    "cov": 0.12
+   },
+   {
+    "pad": "J2.2",
+    "net": "+3.3V",
+    "layer": "In2.Cu",
+    "cov": 0.29
+   },
+   {
+    "pad": "J2.22",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.29
+   },
+   {
+    "pad": "SW12.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   },
+   {
+    "pad": "SW12.2",
+    "net": "GND",
+    "layer": "In1.Cu",
+    "cov": 0.26
+   }
+  ],
+  "big_pads_with_vias": [],
+  "maskwebs": 0,
+  "maskweb_fps": [],
+  "maskweb_min": null,
+  "spacing_pairs": 0,
+  "tht_smd": [
+   {
+    "tht": "J2.5",
+    "smd": "R17.2",
+    "d": 1.25
+   },
+   {
+    "tht": "J2.4",
+    "smd": "R18.2",
+    "d": 1.35
+   },
+   {
+    "tht": "J2.17",
+    "smd": "R19.2",
+    "d": 1.41
+   },
+   {
+    "tht": "J2.13",
+    "smd": "R16.1",
+    "d": 1.45
+   },
+   {
+    "tht": "J3.18",
+    "smd": "C33.1",
+    "d": 1.56
+   },
+   {
+    "tht": "J3.19",
+    "smd": "C32.1",
+    "d": 1.56
+   },
+   {
+    "tht": "J10.SH",
+    "smd": "R13.2",
+    "d": 1.64
+   },
+   {
+    "tht": "TP2.1",
+    "smd": "TP3.1",
+    "d": 1.75
+   },
+   {
+    "tht": "J3.3",
+    "smd": "R14.2",
+    "d": 1.89
+   },
+   {
+    "tht": "J3.4",
+    "smd": "R15.2",
+    "d": 1.89
+   },
+   {
+    "tht": "J10.SH",
+    "smd": "R12.2",
+    "d": 2.18
+   },
+   {
+    "tht": "J2.19",
+    "smd": "TP4.1",
+    "d": 2.54
+   },
+   {
+    "tht": "J2.7",
+    "smd": "C31.1",
+    "d": 2.76
+   }
+  ],
+  "under_devkit": [],
+  "under_screen": [
+   {
+    "ref": "SW14",
+    "mpn": "MLD-TS-6X6X5-J",
+    "h": 5.0
+   },
+   {
+    "ref": "SW16",
+    "mpn": "MLD-TS-6X6X5-J",
+    "h": 5.0
+   },
+   {
+    "ref": "L2",
+    "mpn": "FNR4030S220MT",
+    "h": 3.0
+   },
+   {
+    "ref": "U5",
+    "mpn": "MCP23017-E/SO",
+    "h": 2.65
+   },
+   {
+    "ref": "D3",
+    "mpn": "SS210",
+    "h": 2.45
+   },
+   {
+    "ref": "U7",
+    "mpn": "W25Q128JVSIQ",
+    "h": 2.16
+   },
+   {
+    "ref": "J4",
+    "mpn": "84953-6",
+    "h": 2.0
+   },
+   {
+    "ref": "C21",
+    "mpn": "CL31B225KBHNNNE",
+    "h": 1.8
+   },
+   {
+    "ref": "C36",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C20",
+    "mpn": "CL21A106KAYNNNE",
+    "h": 1.45
+   },
+   {
+    "ref": "C28",
+    "mpn": "CL21A106KAYNNNE",
+    "h": 1.45
+   },
+   {
+    "ref": "C33",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C22",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C14",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C34",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C31",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C38",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "U8",
+    "mpn": "DIO5661ST6",
+    "h": 1.45
+   },
+   {
+    "ref": "C30",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C39",
+    "mpn": "CC0805KRX7R9BB104",
+    "h": 1.45
+   },
+   {
+    "ref": "C35",
+    "mpn": "CL21A106KAYNNNE",
+    "h": 1.45
+   },
+   {
+    "ref": "J1",
+    "mpn": "XF2M-4015-1A",
+    "h": 1.2
+   },
+   {
+    "ref": "Y1",
+    "mpn": "X503212MSB4SI",
+    "h": 1.2
+   },
+   {
+    "ref": "FB3",
+    "mpn": "GZ2012D601TF",
+    "h": 1.0
+   },
+   {
+    "ref": "U1",
+    "mpn": "BT817Q-R",
+    "h": 1.0
+   },
+   {
+    "ref": "C27",
+    "mpn": "CL10A106KP8NNNC",
+    "h": 0.9
+   },
+   {
+    "ref": "R11",
+    "mpn": "0805W8F1002T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R17",
+    "mpn": "0805W8F1002T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R1",
+    "mpn": "0805W8F1001T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R14",
+    "mpn": "0805W8F220JT5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R15",
+    "mpn": "0805W8F220JT5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R5",
+    "mpn": "0805W8F1002T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R19",
+    "mpn": "0805W8F1002T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R25",
+    "mpn": "0805W8F1002T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R23",
+    "mpn": "0805W8F1003T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R16",
+    "mpn": "0805W8F1002T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R22",
+    "mpn": "FRC0805F3R30TS",
+    "h": 0.6
+   },
+   {
+    "ref": "R8",
+    "mpn": "0805W8F1002T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R6",
+    "mpn": "0805W8F4701T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R7",
+    "mpn": "0805W8F4701T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "R2",
+    "mpn": "0805W8F1001T5E",
+    "h": 0.6
+   },
+   {
+    "ref": "C3",
+    "mpn": "CL05A105KA5NQNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C2",
+    "mpn": "0402CG330J500NT",
+    "h": 0.55
+   },
+   {
+    "ref": "C5",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C17",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C26",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C24",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C25",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C4",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C6",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "C1",
+    "mpn": "0402CG330J500NT",
+    "h": 0.55
+   },
+   {
+    "ref": "C23",
+    "mpn": "CL05B104KO5NNNC",
+    "h": 0.55
+   },
+   {
+    "ref": "R24",
+    "mpn": "0402WGF330JTCE",
+    "h": 0.4
+   },
+   {
+    "ref": "TP11",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP6",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP8",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP7",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP9",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP4",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP5",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP10",
+    "mpn": null,
+    "h": 0.0
+   },
+   {
+    "ref": "TP12",
+    "mpn": null,
+    "h": 0.0
+   }
+  ],
+  "pin1": [
+   {
+    "ref": "U6",
+    "ok": true,
+    "a1": 0.337,
+    "a2": 0.169
+   },
+   {
+    "ref": "U7",
+    "ok": true,
+    "a1": 0.411,
+    "a2": 0.13
+   },
+   {
+    "ref": "U2",
+    "ok": true,
+    "a1": 0.337,
+    "a2": 0.169
+   },
+   {
+    "ref": "J7",
+    "ok": true,
+    "a1": 0.148,
+    "a2": 0.0
+   },
+   {
+    "ref": "J6",
+    "ok": true,
+    "a1": 0.148,
+    "a2": 0.0
+   },
+   {
+    "ref": "J3",
+    "ok": false,
+    "a1": 0.638,
+    "a2": 0.918
+   },
+   {
+    "ref": "J1",
+    "ok": true,
+    "a1": 0.246,
+    "a2": 0.155
+   },
+   {
+    "ref": "J4",
+    "ok": true,
+    "a1": 0.326,
+    "a2": 0.0
+   },
+   {
+    "ref": "J5",
+    "ok": false,
+    "a1": 0.745,
+    "a2": 0.745
+   },
+   {
+    "ref": "Y1",
+    "ok": false,
+    "a1": 0.434,
+    "a2": 0.352
+   },
+   {
+    "ref": "U5",
+    "ok": true,
+    "a1": 0.444,
+    "a2": 0.162
+   },
+   {
+    "ref": "J10",
+    "ok": false,
+    "a1": 0.0,
+    "a2": 0.473
+   },
+   {
+    "ref": "U8",
+    "ok": true,
+    "a1": 0.337,
+    "a2": 0.169
+   },
+   {
+    "ref": "U4",
+    "ok": true,
+    "a1": 0.358,
+    "a2": 0.19
+   },
+   {
+    "ref": "U1",
+    "ok": true,
+    "a1": 0.24,
+    "a2": 0.125
+   },
+   {
+    "ref": "J2",
+    "ok": false,
+    "a1": 0.638,
+    "a2": 0.918
+   }
+  ],
+  "polarity": [
+   {
+    "ref": "D1",
+    "value": "P6SMB6.8CA",
+    "pins": {
+     "1": [
+      "A1_1",
+      "+5V"
+     ],
+     "2": [
+      "A2_2",
+      "GND"
+     ]
+    },
+    "bidir": true,
+    "marked": "D1.1"
+   },
+   {
+    "ref": "D2",
+    "value": "GREEN",
+    "pins": {
+     "1": [
+      "K_1",
+      "Net-(D2-K)"
+     ],
+     "2": [
+      "A_2",
+      "+3.3V"
+     ]
+    },
+    "bidir": false,
+    "marked": "D2.1"
+   },
+   {
+    "ref": "D3",
+    "value": "SS210",
+    "pins": {
+     "1": [
+      "K_1",
+      "/Screen_Ctrl/VLED+"
+     ],
+     "2": [
+      "A_2",
+      "/Screen_Ctrl/BL_LX"
+     ]
+    },
+    "bidir": false,
+    "marked": "D3.1"
+   }
+  ],
+  "buttons": [
+   {
+    "ref": "SW14",
+    "name": "SW_Reset",
+    "silk": [
+     "SW14"
+    ]
+   },
+   {
+    "ref": "SW10",
+    "name": "BTN_X",
+    "silk": [
+     "SW10"
+    ]
+   },
+   {
+    "ref": "SW5",
+    "name": "BTN_A_DW",
+    "silk": [
+     "SW5"
+    ]
+   },
+   {
+    "ref": "SW11",
+    "name": "BTN_O",
+    "silk": [
+     "SW11"
+    ]
+   },
+   {
+    "ref": "SW9",
+    "name": "BTN_HOME",
+    "silk": [
+     "SW9"
+    ]
+   },
+   {
+    "ref": "SW8",
+    "name": "BTN_VOL_+",
+    "silk": [
+     "SW8"
+    ]
+   },
+   {
+    "ref": "SW7",
+    "name": "BTN_VOL_-",
+    "silk": [
+     "SW7"
+    ]
+   },
+   {
+    "ref": "SW1",
+    "name": "BTN_T_L",
+    "silk": [
+     "SW1"
+    ]
+   },
+   {
+    "ref": "SW6",
+    "name": "BTN_SLCT",
+    "silk": [
+     "SW6"
+    ]
+   },
+   {
+    "ref": "SW13",
+    "name": "BTN_T",
+    "silk": [
+     "SW13"
+    ]
+   },
+   {
+    "ref": "SW16",
+    "name": "SW_Boot",
+    "silk": [
+     "SW16"
+    ]
+   },
+   {
+    "ref": "SW2",
+    "name": "BTN_A_UP",
+    "silk": [
+     "SW2"
+    ]
+   },
+   {
+    "ref": "SW3",
+    "name": "BTN_A_R",
+    "silk": [
+     "SW3"
+    ]
+   },
+   {
+    "ref": "SW4",
+    "name": "BTN_A_L",
+    "silk": [
+     "SW4"
+    ]
+   },
+   {
+    "ref": "SW15",
+    "name": "BTN_T_R",
+    "silk": [
+     "SW15"
+    ]
+   },
+   {
+    "ref": "SW12",
+    "name": "BTN_C",
+    "silk": [
+     "SW12"
+    ]
+   }
+  ],
+  "devkit_box": [
+   143.33,
+   15.940000000000001,
+   168.73,
+   78.98
+  ],
+  "screen_box": [
+   69.65,
+   34.3001585,
+   190.35,
+   110.10015849999999
+  ]
+ }
+}
