@@ -1,0 +1,338 @@
+{
+ "caps": {
+  "layers": 4,
+  "thickness": 1.6,
+  "track_min": 0.09,
+  "track_rec": 0.127,
+  "clearance_min": 0.09,
+  "clearance_rec": 0.127,
+  "via_drill_min": 0.15,
+  "via_drill_free": 0.3,
+  "via_diam_min": 0.25,
+  "via_annular_min": 0.075,
+  "via_annular_rec": 0.15,
+  "pth_drill_min": 0.2,
+  "pth_annular_min": 0.13,
+  "pth_annular_rec": 0.25,
+  "npth_drill_min": 0.5,
+  "drill_max": 6.3,
+  "plated_slot_min": 0.5,
+  "hole_to_hole_min": 0.2,
+  "hole_to_hole_diffnet": 0.25,
+  "pth_hole_to_hole": 0.45,
+  "hole_to_copper_min": 0.2,
+  "mask_dam_min": 0.1,
+  "copper_edge_min": 0.3,
+  "router_slot_min": 1.0,
+  "router_inner_radius": 0.5,
+  "silk_line_min": 0.15,
+  "silk_text_h_min": 1.0
+ },
+ "results": [
+  {
+   "cat": "Stackup",
+   "item": "Capas de cobre",
+   "value": 4,
+   "limit": 4,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "cat": "Stackup",
+   "item": "Grosor (mm)",
+   "value": 1.6,
+   "limit": 1.6,
+   "status": "OK",
+   "note": "Acabado ENIG: se elige en el pedido, no esta en los Gerber."
+  },
+  {
+   "cat": "Contorno",
+   "item": "Contornos cerrados (Edge.Cuts)",
+   "value": 1,
+   "limit": 1,
+   "status": "OK",
+   "note": "Un unico poligono cerrado y valido."
+  },
+  {
+   "cat": "Contorno",
+   "item": "Dimensiones (mm)",
+   "value": "228.00 x 115.40",
+   "limit": "-",
+   "status": "INFO",
+   "note": ""
+  },
+  {
+   "cat": "Muesca antena",
+   "item": "Anchura x profundidad (mm)",
+   "value": "40.00 x 7.80",
+   "limit": ">= 1.0 de ancho",
+   "status": "OK",
+   "note": "Esquinas interiores en (136.0, 22.3), (176.0, 22.3)"
+  },
+  {
+   "cat": "Muesca antena",
+   "item": "Radio de esquinas interiores",
+   "value": "0 (vivas)",
+   "limit": ">= 0.5",
+   "status": "AVISO",
+   "note": "La fresa dejara radio ~0,5 mm (o mayor segun fresa). Es aceptable si nada depende de una esquina viva; si se quiere controlar, dibujar r=0,5-1 mm."
+  },
+  {
+   "cat": "Pistas",
+   "item": "Anchura minima F.Cu",
+   "value": 0.2,
+   "limit": 0.09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "cat": "Pistas",
+   "item": "Anchura minima In1.Cu",
+   "value": "sin pistas",
+   "limit": 0.09,
+   "status": "OK",
+   "note": "Capa solo con plano"
+  },
+  {
+   "cat": "Pistas",
+   "item": "Anchura minima In2.Cu",
+   "value": "sin pistas",
+   "limit": 0.09,
+   "status": "OK",
+   "note": "Capa solo con plano"
+  },
+  {
+   "cat": "Pistas",
+   "item": "Anchura minima B.Cu",
+   "value": 0.2,
+   "limit": 0.09,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "cat": "Vias",
+   "item": "Taladro minimo (181 vias)",
+   "value": 0.3,
+   "limit": 0.15,
+   "status": "OK",
+   "note": "Sin sobrecoste por via pequena"
+  },
+  {
+   "cat": "Vias",
+   "item": "Diametro minimo",
+   "value": 0.6,
+   "limit": 0.25,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "cat": "Vias",
+   "item": "Anillo minimo",
+   "value": 0.15,
+   "limit": 0.075,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "cat": "Vias",
+   "item": "Tipos de via",
+   "value": "4",
+   "limit": "pasante",
+   "status": "OK",
+   "note": "Todas pasantes (sin ciegas/enterradas/microvias)."
+  },
+  {
+   "cat": "Vias",
+   "item": "Tenting",
+   "value": "F=True B=True",
+   "limit": "-",
+   "status": "INFO",
+   "note": "Vias cubiertas de mascara en ambas caras."
+  },
+  {
+   "cat": "Taladros",
+   "item": "PTH redondo minimo",
+   "value": 0.33,
+   "limit": 0.2,
+   "status": "OK",
+   "note": "U1 pad 65"
+  },
+  {
+   "cat": "Taladros",
+   "item": "Taladro maximo",
+   "value": 3.2,
+   "limit": 6.3,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "cat": "Taladros",
+   "item": "NPTH minimo",
+   "value": 0.65,
+   "limit": 0.5,
+   "status": "OK",
+   "note": "J10 pad "
+  },
+  {
+   "cat": "Taladros",
+   "item": "Ranura metalizada minima (4)",
+   "value": 0.6,
+   "limit": 0.5,
+   "status": "OK",
+   "note": "J10 (carcasa USB-C)"
+  },
+  {
+   "cat": "Taladros",
+   "item": "Anillo PTH minimo",
+   "value": 0.15,
+   "limit": 0.13,
+   "status": "AVISO",
+   "note": "U1 pad 65 (0.63/0.33 mm) - vias termicas del EP, se fabrican como vias"
+  },
+  {
+   "cat": "Taladros",
+   "item": "Anillo PTH minimo (componentes)",
+   "value": 0.2,
+   "limit": 0.13,
+   "status": "AVISO",
+   "note": "J10 pad SH"
+  },
+  {
+   "cat": "Taladros",
+   "item": "Distancia taladro-taladro (mismo net)",
+   "value": 0.862,
+   "limit": 0.2,
+   "status": "OK",
+   "note": "U1 pad 65 / U1 pad 65"
+  },
+  {
+   "cat": "Taladros",
+   "item": "Distancia taladro-taladro (nets distintos)",
+   "value": 0.5,
+   "limit": 0.25,
+   "status": "OK",
+   "note": "via DISP @[114.135725, 96.645486] / via HSYNC @[114.642706, 97.264335]"
+  },
+  {
+   "cat": "Holguras",
+   "item": "Cobre-cobre minima F.Cu",
+   "value": 0.2,
+   "limit": 0.09,
+   "status": "OK",
+   "note": "pista /Power_Supply_USB/USB_C_D- 0.2mm / via /Power_Supply_USB/USB_C_D+"
+  },
+  {
+   "cat": "Cobre al borde",
+   "item": "Minimo F.Cu",
+   "value": 0.99,
+   "limit": 0.3,
+   "status": "OK",
+   "note": "J2 pad 1"
+  },
+  {
+   "cat": "Holguras",
+   "item": "Cobre-cobre minima In1.Cu",
+   "value": 0.2,
+   "limit": 0.09,
+   "status": "OK",
+   "note": "via DISP / via HSYNC"
+  },
+  {
+   "cat": "Cobre al borde",
+   "item": "Minimo In1.Cu",
+   "value": 0.499,
+   "limit": 0.3,
+   "status": "OK",
+   "note": "plano GND"
+  },
+  {
+   "cat": "Holguras",
+   "item": "Cobre-cobre minima In2.Cu",
+   "value": 0.2,
+   "limit": 0.09,
+   "status": "OK",
+   "note": "via DISP / via HSYNC"
+  },
+  {
+   "cat": "Cobre al borde",
+   "item": "Minimo In2.Cu",
+   "value": 0.499,
+   "limit": 0.3,
+   "status": "OK",
+   "note": "plano +3.3V"
+  },
+  {
+   "cat": "Holguras",
+   "item": "Cobre-cobre minima B.Cu",
+   "value": 0.2,
+   "limit": 0.09,
+   "status": "OK",
+   "note": "pista Net-(U5-GPB5) 0.2mm / pista Net-(U5-GPB4) 0.2mm"
+  },
+  {
+   "cat": "Cobre al borde",
+   "item": "Minimo B.Cu",
+   "value": 0.99,
+   "limit": 0.3,
+   "status": "OK",
+   "note": "J2 pad 1"
+  },
+  {
+   "cat": "Holguras",
+   "item": "Taladro a cobre de otro net",
+   "value": 0.25,
+   "limit": 0.2,
+   "status": "OK",
+   "note": "In1.Cu: J10 pad  / plano GND"
+  },
+  {
+   "cat": "Muesca antena",
+   "item": "Cobre a <3 mm del borde de la muesca",
+   "value": 10,
+   "limit": "-",
+   "status": "INFO",
+   "note": "distancia minima 0.5 mm; planos implicados: In1.Cu, In2.Cu"
+  },
+  {
+   "cat": "Mascara",
+   "item": "Presa minima F.Mask (489 aperturas)",
+   "value": 0.2,
+   "limit": 0.1,
+   "status": "OK",
+   "note": "J6 pad 1 / J6 pad 2"
+  },
+  {
+   "cat": "Mascara",
+   "item": "Presa minima B.Mask (123 aperturas)",
+   "value": 0.605,
+   "limit": 0.1,
+   "status": "OK",
+   "note": "J10 pad  / J10 pad SH"
+  },
+  {
+   "cat": "Mascara",
+   "item": "Expansion global de mascara",
+   "value": 0.0,
+   "limit": "0-0.05",
+   "status": "INFO",
+   "note": "0 mm: la apertura coincide con el pad; JLC aplica su propia compensacion."
+  },
+  {
+   "cat": "Serigrafia",
+   "item": "Altura minima de texto",
+   "value": 1.0,
+   "limit": 1.0,
+   "status": "OK",
+   "note": ""
+  },
+  {
+   "cat": "Serigrafia",
+   "item": "Grosor minimo de trazo (fuente KiCad)",
+   "value": 0.15,
+   "limit": 0.15,
+   "status": "OK",
+   "note": "Textos TrueType: Jose Ramirez Giron"
+  }
+ ],
+ "edge_items": []
+}

@@ -1,0 +1,15 @@
+(version 1)
+# Reglas JLCPCB 4 capas (supuestos, ver README). Se copian como
+# <proyecto>.kicad_dru en una COPIA de hardware/ antes de lanzar el DRC.
+(rule "JLC pista minima" (constraint track_width (min 0.09mm)))
+(rule "JLC holgura cobre" (condition "A.Type != 'Zone' || B.Type != 'Zone'") (constraint clearance (min 0.09mm)))
+(rule "JLC via taladro" (condition "A.Type == 'Via'") (constraint hole_size (min 0.15mm)))
+(rule "JLC via diametro" (condition "A.Type == 'Via'") (constraint via_diameter (min 0.25mm)))
+(rule "JLC via anillo" (condition "A.Type == 'Via'") (constraint annular_width (min 0.075mm)))
+(rule "JLC PTH anillo" (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'") (constraint annular_width (min 0.13mm)))
+(rule "JLC PTH taladro" (condition "A.isPlated()") (constraint hole_size (min 0.2mm) (max 6.3mm)))
+(rule "JLC NPTH taladro" (condition "A.Type == 'Pad' && !A.isPlated()") (constraint hole_size (min 0.5mm) (max 6.3mm)))
+(rule "JLC taladro-taladro" (constraint hole_to_hole (min 0.2mm)))
+(rule "JLC taladro-cobre" (constraint hole_clearance (min 0.2mm)))
+(rule "JLC cobre-borde" (constraint edge_clearance (min 0.3mm)))
+(rule "JLC serigrafia texto" (layer "?.Silkscreen") (constraint text_height (min 1.0mm)))
