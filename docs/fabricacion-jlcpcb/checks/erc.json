@@ -1,0 +1,114 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-01T23:45:25",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/00cac875-c54d-4e9b-9608-ca7d878bb3a3",
+            "violations": [
+                {
+                    "comment": "",
+                    "description": "Assigned footprint doesn't match footprint filters",
+                    "excluded": true,
+                    "items": [
+                        {
+                            "description": "Symbol J6 [Conn_01x05]",
+                            "pos": {
+                                "x": 251.46,
+                                "y": 88.9
+                            },
+                            "uuid": "13fb4d77-6f30-486f-9079-29559d2eb8cf"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "footprint_filter"
+                },
+                {
+                    "comment": "",
+                    "description": "Assigned footprint doesn't match footprint filters",
+                    "excluded": true,
+                    "items": [
+                        {
+                            "description": "Symbol J7 [Conn_01x05]",
+                            "pos": {
+                                "x": 251.46,
+                                "y": 114.3
+                            },
+                            "uuid": "da1a981c-efd1-4d9f-b334-16989dc7bda5"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "footprint_filter"
+                },
+                {
+                    "comment": "",
+                    "description": "Assigned footprint doesn't match footprint filters",
+                    "excluded": true,
+                    "items": [
+                        {
+                            "description": "Symbol J4 [Conn_01x06]",
+                            "pos": {
+                                "x": 204.47,
+                                "y": 35.56
+                            },
+                            "uuid": "234821c8-e2ce-40f7-9d11-b2d0b018e504"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "footprint_filter"
+                },
+                {
+                    "comment": "",
+                    "description": "Assigned footprint doesn't match footprint filters",
+                    "excluded": true,
+                    "items": [
+                        {
+                            "description": "Symbol J1 [Conn_01x40]",
+                            "pos": {
+                                "x": 204.47,
+                                "y": 106.68
+                            },
+                            "uuid": "fe19878b-f69a-4321-9879-2b38efeef9ab"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "footprint_filter"
+                }
+            ]
+        },
+        {
+            "path": "/Power_Supply_USB/",
+            "uuid_path": "/00cac875-c54d-4e9b-9608-ca7d878bb3a3/395dbbe7-bcd6-4e5a-855e-7ed6ac0024f9",
+            "violations": []
+        },
+        {
+            "path": "/Buttons_Joysticks/",
+            "uuid_path": "/00cac875-c54d-4e9b-9608-ca7d878bb3a3/369482d8-353b-49a1-942e-7b257f44e09a",
+            "violations": []
+        },
+        {
+            "path": "/Audio_Conv/",
+            "uuid_path": "/00cac875-c54d-4e9b-9608-ca7d878bb3a3/b5277a11-c4fa-437f-8a00-9a65c31f89c0",
+            "violations": []
+        },
+        {
+            "path": "/EVE_Memory/",
+            "uuid_path": "/00cac875-c54d-4e9b-9608-ca7d878bb3a3/6b2c6ef6-1d46-4de5-8680-38420628a002",
+            "violations": []
+        },
+        {
+            "path": "/Screen_Ctrl/",
+            "uuid_path": "/00cac875-c54d-4e9b-9608-ca7d878bb3a3/cd465715-2b3a-4845-a953-711fd91545ee",
+            "violations": []
+        }
+    ],
+    "source": "ocxPrototype.kicad_sch"
+}
