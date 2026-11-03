@@ -1,0 +1,95 @@
+{
+ "abierta_25C_nom": {
+  "U6": {
+   "P_W": 0.18,
+   "T_placa": 31.5,
+   "theta_local": 50,
+   "Tj": 40.5
+  },
+  "U8": {
+   "P_W": 0.1,
+   "T_placa": 30.6,
+   "theta_local": 70,
+   "Tj": 37.6
+  },
+  "U1": {
+   "P_W": 0.25,
+   "T_placa": 30.8,
+   "theta_local": 7,
+   "Tj": 32.6
+  }
+ },
+ "abierta_25C_max": {
+  "U6": {
+   "P_W": 0.22,
+   "T_placa": 32.9,
+   "theta_local": 75,
+   "Tj": 49.4
+  },
+  "U8": {
+   "P_W": 0.15,
+   "T_placa": 32.4,
+   "theta_local": 105,
+   "Tj": 48.1
+  },
+  "U1": {
+   "P_W": 0.33,
+   "T_placa": 32.7,
+   "theta_local": 12,
+   "Tj": 36.6
+  }
+ },
+ "carcasa_40C_nom": {
+  "U6": {
+   "P_W": 0.18,
+   "T_placa": 49.0,
+   "theta_local": 50,
+   "Tj": 58.0
+  },
+  "U8": {
+   "P_W": 0.1,
+   "T_placa": 48.7,
+   "theta_local": 70,
+   "Tj": 55.7
+  },
+  "U1": {
+   "P_W": 0.25,
+   "T_placa": 48.8,
+   "theta_local": 7,
+   "Tj": 50.5
+  }
+ },
+ "carcasa_40C_max": {
+  "U6": {
+   "P_W": 0.22,
+   "T_placa": 50.9,
+   "theta_local": 75,
+   "Tj": 67.4
+  },
+  "U8": {
+   "P_W": 0.15,
+   "T_placa": 51.2,
+   "theta_local": 105,
+   "Tj": 67.0
+  },
+  "U1": {
+   "P_W": 0.33,
+   "T_placa": 51.4,
+   "theta_local": 12,
+   "Tj": 55.3
+  }
+ },
+ "R_placa_ambiente_U6_h20": 33.6,
+ "R_placa_ambiente_U6_h8": 42.6,
+ "R_placa_ambiente_U8_h20": 31.7,
+ "R_placa_ambiente_U8_h8": 38.2,
+ "R_placa_ambiente_U1_h20": 20.8,
+ "R_placa_ambiente_U1_h8": 26.9,
+ "malla": {
+  "xc0": 15.25,
+  "xc1": 244.75,
+  "yc0": 14.25,
+  "yc1": 130.75,
+  "h": 0.5
+ }
+}

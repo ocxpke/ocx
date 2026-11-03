@@ -1,0 +1,313 @@
+{
+ "usb_tramos_acoplados": {
+  "F.Cu hueco 0.250 mm": 46.27,
+  "F.Cu hueco 0.300 mm": 4.85,
+  "F.Cu hueco 0.625 mm": 4.62,
+  "F.Cu hueco 0.550 mm": 0.3,
+  "F.Cu hueco 1.000 mm": 0.27,
+  "F.Cu hueco 0.200 mm": 0.19,
+  "F.Cu hueco 0.544 mm": 0.14,
+  "F.Cu hueco 0.400 mm": 0.09
+ },
+ "usb_longitudes_mm": {
+  "/Power_Supply_USB/USB_C_D+": 69.03,
+  "USB_D+": 3.36,
+  "/Power_Supply_USB/USB_C_D-": 68.35,
+  "USB_D-": 3.34
+ },
+ "usb_sesgo_mm": 0.71,
+ "usb_vias": 5,
+ "qspi_vs_rgb_paralelos_3mm": [],
+ "qspi_vs_rgb_hueco_minimo": {
+  "hueco_mm": 0.8,
+  "redes": [
+   "/SCK",
+   "B7"
+  ],
+  "capa": "F.Cu",
+  "cerca_de": [
+   124.7,
+   66.0
+  ]
+ },
+ "spim_vs_rgb_hueco_minimo": {
+  "hueco_mm": 6.3,
+  "redes": [
+   "SPIM_SCLK",
+   "B7"
+  ],
+  "capa": "F.Cu",
+  "cerca_de": [
+   127.8,
+   60.5
+  ]
+ },
+ "qspi_interno": [
+  {
+   "redes": [
+    "/MISO",
+    "/SCK"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 16.64,
+   "hueco_min_mm": 0.224
+  },
+  {
+   "redes": [
+    "/MISO",
+    "/MOSI"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 5.26,
+   "hueco_min_mm": 0.25
+  },
+  {
+   "redes": [
+    "/CS_N",
+    "/GPIO0{slash}IO2"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 12.51,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "/GPIO0{slash}IO2",
+    "/GPIO1{slash}IO3"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 5.06,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "/CS_N",
+    "/MOSI"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 12.56,
+   "hueco_min_mm": 0.35
+  },
+  {
+   "redes": [
+    "/GPIO0{slash}IO2",
+    "/GPIO1{slash}IO3"
+   ],
+   "capa": "B.Cu",
+   "paralelo_mm": 2.09,
+   "hueco_min_mm": 0.425
+  },
+  {
+   "redes": [
+    "/GPIO0{slash}IO2",
+    "/MISO"
+   ],
+   "capa": "B.Cu",
+   "paralelo_mm": 1.84,
+   "hueco_min_mm": 0.428
+  },
+  {
+   "redes": [
+    "/MOSI",
+    "/SCK"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 5.16,
+   "hueco_min_mm": 0.75
+  },
+  {
+   "redes": [
+    "/CS_N",
+    "/MISO"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 5.31,
+   "hueco_min_mm": 0.8
+  },
+  {
+   "redes": [
+    "/CS_N",
+    "/GPIO1{slash}IO3"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 5.06,
+   "hueco_min_mm": 0.8
+  }
+ ],
+ "spim_interno": [
+  {
+   "redes": [
+    "SPIM_IO2",
+    "SPIM_IO3"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 5.44,
+   "hueco_min_mm": 0.2
+  },
+  {
+   "redes": [
+    "SPIM_MOSI",
+    "SPIM_SCLK"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 9.0,
+   "hueco_min_mm": 0.238
+  },
+  {
+   "redes": [
+    "SPIM_IO2",
+    "SPIM_MISO"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 1.56,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "SPIM_MOSI",
+    "SPIM_SS_N"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 5.15,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "SPIM_SCLK",
+    "SPIM_SS_N"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 4.8,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "SPIM_IO3",
+    "SPIM_MISO"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 1.35,
+   "hueco_min_mm": 0.781
+  }
+ ],
+ "pclk_vecinos": [
+  {
+   "redes": [
+    "DISP",
+    "PCLK"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 4.36,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "Net-(U1-PCLK)",
+    "R0"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 3.41,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "DISP",
+    "Net-(U1-PCLK)"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 3.46,
+   "hueco_min_mm": 0.3
+  },
+  {
+   "redes": [
+    "DISP",
+    "PCLK"
+   ],
+   "capa": "B.Cu",
+   "paralelo_mm": 12.2,
+   "hueco_min_mm": 0.31
+  },
+  {
+   "redes": [
+    "HSYNC",
+    "PCLK"
+   ],
+   "capa": "B.Cu",
+   "paralelo_mm": 1.85,
+   "hueco_min_mm": 0.766
+  },
+  {
+   "redes": [
+    "B7",
+    "PCLK"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 4.99,
+   "hueco_min_mm": 0.8
+  },
+  {
+   "redes": [
+    "HSYNC",
+    "PCLK"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 3.73,
+   "hueco_min_mm": 0.8
+  },
+  {
+   "redes": [
+    "Net-(U1-PCLK)",
+    "R1"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 3.35,
+   "hueco_min_mm": 0.8
+  },
+  {
+   "redes": [
+    "HSYNC",
+    "Net-(U1-PCLK)"
+   ],
+   "capa": "F.Cu",
+   "paralelo_mm": 2.7,
+   "hueco_min_mm": 0.8
+  }
+ ],
+ "plano_referencia": {
+  "por_grupo": {
+   "SPIM F.Cu": {
+    "longitud_mm": 96.1,
+    "sobre_hueco_mm": 2.28
+   },
+   "SPIM B.Cu": {
+    "longitud_mm": 12.9,
+    "sobre_hueco_mm": 2.22
+   },
+   "USB F.Cu": {
+    "longitud_mm": 133.7,
+    "sobre_hueco_mm": 5.47
+   },
+   "USB B.Cu": {
+    "longitud_mm": 10.4,
+    "sobre_hueco_mm": 2.76
+   },
+   "RGB F.Cu": {
+    "longitud_mm": 997.5,
+    "sobre_hueco_mm": 5.96
+   },
+   "RGB B.Cu": {
+    "longitud_mm": 182.5,
+    "sobre_hueco_mm": 5.93
+   },
+   "QSPI F.Cu": {
+    "longitud_mm": 119.5,
+    "sobre_hueco_mm": 15.82
+   },
+   "QSPI B.Cu": {
+    "longitud_mm": 56.3,
+    "sobre_hueco_mm": 11.16
+   }
+  },
+  "tramo_continuo_max_sobre_hueco_mm": 1.66
+ }
+}
