@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="1280" height="800" font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">
+  <title>Conexión del cable FPC de un joystick a J6 o J7</title>
+
+  <!-- ============ VISTA SUPERIOR ============ -->
+  <g transform="translate(14,18)">
+    <text x="0" y="-4" font-size="4.6" font-weight="bold" fill="#1d2733">Vista superior (J6 o J7)</text>
+    <rect x="0" y="0" width="120" height="150" rx="2" fill="#1f5f3a"/>
+    <!-- rosa de los vientos -->
+    <g transform="translate(108,14)">
+      <polygon points="0,-8 3,0 -3,0" fill="#f4f4f0"/>
+      <text x="0" y="6" font-size="4" fill="#f4f4f0" text-anchor="middle" font-weight="bold">N</text>
+    </g>
+    <!-- conector, escala ×6 -->
+    <g transform="translate(60,45) scale(6)">
+      <!-- pads de soldadura (lado norte) -->
+      <g fill="#c8a245">
+        <rect x="-1.15" y="-1.9" width="0.3" height="1.1"/><rect x="-0.65" y="-1.9" width="0.3" height="1.1"/>
+        <rect x="-0.15" y="-1.9" width="0.3" height="1.1"/><rect x="0.35" y="-1.9" width="0.3" height="1.1"/>
+        <rect x="0.85" y="-1.9" width="0.3" height="1.1"/>
+        <rect x="-3.82" y="-1.2" width="2.3" height="3.1"/><rect x="1.52" y="-1.2" width="2.3" height="3.1"/>
+      </g>
+      <!-- cuerpo -->
+      <rect x="-3.31" y="-0.65" width="6.62" height="2.8" fill="#e9e4d8" stroke="#6b6455" stroke-width="0.08"/>
+      <!-- pestaña / actuador (lado sur) -->
+      <rect x="-3.965" y="2.15" width="7.93" height="1.6" fill="#3a3a3a" stroke="#111" stroke-width="0.08"/>
+      <text x="-1.05" y="-2.2" font-size="0.7" fill="#f4f4f0" text-anchor="middle">1</text>
+      <text x="1.05" y="-2.2" font-size="0.7" fill="#f4f4f0" text-anchor="middle">5</text>
+      <!-- cable FPC entrando desde el sur -->
+      <rect x="-1.6" y="1.0" width="3.2" height="9" fill="#e1932b" opacity="0.92"/>
+      <g fill="#f2d16b" stroke="#a88a2a" stroke-width="0.04">
+        <rect x="-1.15" y="1.0" width="0.3" height="2.6"/><rect x="-0.65" y="1.0" width="0.3" height="2.6"/>
+        <rect x="-0.15" y="1.0" width="0.3" height="2.6"/><rect x="0.35" y="1.0" width="0.3" height="2.6"/>
+        <rect x="0.85" y="1.0" width="0.3" height="2.6"/>
+      </g>
+      <!-- tapa la parte del cable que queda bajo la pestaña -->
+      <rect x="-3.965" y="2.15" width="7.93" height="1.6" fill="#3a3a3a" opacity="0.75"/>
+    </g>
+    <!-- anotaciones -->
+    <line x1="60" y1="122" x2="60" y2="112" stroke="#f4f4f0" stroke-width="1"/>
+    <polygon points="60,106 56,114 64,114" fill="#f4f4f0"/>
+    <text x="60" y="128" font-size="3.6" fill="#f4f4f0" text-anchor="middle" font-weight="bold">el cable entra por el sur</text>
+    <text x="60" y="133" font-size="3.2" fill="#f4f4f0" text-anchor="middle">(lado de la pestaña)</text>
+    <text x="60" y="142" font-size="3.2" fill="#f4f4f0" text-anchor="middle">contactos dorados hacia arriba</text>
+  </g>
+
+  <!-- ============ VISTA LATERAL: 3 PASOS ============ -->
+  <g transform="translate(150,14)">
+    <text x="0" y="0" font-size="4.6" font-weight="bold" fill="#1d2733">Vista lateral · norte a la izquierda</text>
+
+    <!-- Paso 1 -->
+    <g transform="translate(0,10)">
+      <circle cx="4" cy="8" r="4" fill="#0b7d8c"/><text x="4" y="9.6" font-size="4.4" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+      <text x="12" y="6" font-size="3.6" font-weight="bold" fill="#1d2733">Abre la pestaña</text>
+      <text x="12" y="10.5" font-size="3.1" fill="#4a5560">Desliza o levanta el actuador con la uña,</text>
+      <text x="12" y="14.5" font-size="3.1" fill="#4a5560">sin forzar. No tires del cuerpo del conector.</text>
+      <rect x="10" y="38" width="130" height="3" fill="#1f5f3a"/>
+      <rect x="40" y="27" width="40" height="11" fill="#e9e4d8" stroke="#6b6455" stroke-width="0.5"/>
+      <rect x="84" y="29" width="14" height="9" fill="#3a3a3a"/>
+      <line x1="100" y1="33" x2="114" y2="33" stroke="#0b7d8c" stroke-width="1"/>
+      <polygon points="118,33 112,30 112,36" fill="#0b7d8c"/>
+      <text x="120" y="45.5" font-size="3" fill="#4a5560" text-anchor="end">pestaña abierta</text>
+    </g>
+
+    <!-- Paso 2 -->
+    <g transform="translate(0,62)">
+      <circle cx="4" cy="8" r="4" fill="#0b7d8c"/><text x="4" y="9.6" font-size="4.4" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+      <text x="12" y="6" font-size="3.6" font-weight="bold" fill="#1d2733">Mete el cable recto, contactos arriba</text>
+      <text x="12" y="10.5" font-size="3.1" fill="#4a5560">Hasta el fondo y sin doblarlo. Debe quedar</text>
+      <text x="12" y="14.5" font-size="3.1" fill="#4a5560">centrado y paralelo al conector.</text>
+      <rect x="10" y="38" width="130" height="3" fill="#1f5f3a"/>
+      
+      <rect x="84" y="29" width="14" height="9" fill="#3a3a3a"/>
+      <!-- cable -->
+      <rect x="50" y="31.2" width="90" height="1.6" fill="#e1932b"/>
+      <rect x="50" y="30.4" width="22" height="0.8" fill="#f2d16b"/>
+      <rect x="40" y="27" width="40" height="11" fill="#e9e4d8" fill-opacity="0.55" stroke="#6b6455" stroke-width="0.5"/>
+      <text x="61" y="24.5" font-size="2.8" fill="#8a6a10" text-anchor="middle">contactos ↑</text>
+      <line x1="122" y1="25" x2="110" y2="25" stroke="#0b7d8c" stroke-width="1"/>
+      <polygon points="104,25 110,22 110,28" fill="#0b7d8c"/>
+    </g>
+
+    <!-- Paso 3 -->
+    <g transform="translate(0,114)">
+      <circle cx="4" cy="8" r="4" fill="#0b7d8c"/><text x="4" y="9.6" font-size="4.4" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+      <text x="12" y="6" font-size="3.6" font-weight="bold" fill="#1d2733">Cierra la pestaña</text>
+      <text x="12" y="10.5" font-size="3.1" fill="#4a5560">Empújala hasta que quede a ras. Tira muy</text>
+      <text x="12" y="14.5" font-size="3.1" fill="#4a5560">suave del cable: no debe moverse.</text>
+      <rect x="10" y="38" width="130" height="3" fill="#1f5f3a"/>
+      
+      <rect x="50" y="31.2" width="90" height="1.6" fill="#e1932b"/>
+      <rect x="50" y="30.4" width="22" height="0.8" fill="#f2d16b"/>
+      <rect x="40" y="27" width="40" height="11" fill="#e9e4d8" fill-opacity="0.55" stroke="#6b6455" stroke-width="0.5"/>
+      <rect x="78" y="29" width="14" height="9" fill="#3a3a3a"/>
+      <line x1="106" y1="25" x2="96" y2="25" stroke="#0b7d8c" stroke-width="1"/>
+      <polygon points="92,25 98,22 98,28" fill="#0b7d8c"/>
+      <text x="122" y="22" font-size="6" fill="#1b7a3a" font-weight="bold">✓</text>
+    </g>
+  </g>
+</svg>

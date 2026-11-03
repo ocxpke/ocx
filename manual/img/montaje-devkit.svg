@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 230" width="1280" height="920" font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">
+  <title>Montaje de la ESP32-S3-DevKitC-1 sobre los zócalos J2/J3</title>
+  <defs>
+    <g id="zocalo">
+      <rect x="-1.6" y="-1.6" width="3.2" height="59" rx="0.4" fill="#262626"/>
+      <g fill="#bfa04a">
+        <circle cx="0" cy="1.2" r="0.55"/><circle cx="0" cy="3.74" r="0.55"/><circle cx="0" cy="6.28" r="0.55"/>
+        <circle cx="0" cy="8.82" r="0.55"/><circle cx="0" cy="11.36" r="0.55"/><circle cx="0" cy="13.9" r="0.55"/>
+        <circle cx="0" cy="16.44" r="0.55"/><circle cx="0" cy="18.98" r="0.55"/><circle cx="0" cy="21.52" r="0.55"/>
+        <circle cx="0" cy="24.06" r="0.55"/><circle cx="0" cy="26.6" r="0.55"/><circle cx="0" cy="29.14" r="0.55"/>
+        <circle cx="0" cy="31.68" r="0.55"/><circle cx="0" cy="34.22" r="0.55"/><circle cx="0" cy="36.76" r="0.55"/>
+        <circle cx="0" cy="39.3" r="0.55"/><circle cx="0" cy="41.84" r="0.55"/><circle cx="0" cy="44.38" r="0.55"/>
+        <circle cx="0" cy="46.92" r="0.55"/><circle cx="0" cy="49.46" r="0.55"/><circle cx="0" cy="52" r="0.55"/>
+        <circle cx="0" cy="54.54" r="0.55"/>
+      </g>
+    </g>
+    <!-- DevKit vista superior, antena arriba (y=0), puertos USB abajo -->
+    <g id="devkit">
+      <rect x="0" y="6" width="25.4" height="58" rx="1.2" fill="#14202e" stroke="#0a0f16" stroke-width="0.4"/>
+      <!-- módulo WROOM: antena + blindaje -->
+      <rect x="3.7" y="0" width="18" height="7" fill="#f0ead6" stroke="#8a7f5c" stroke-width="0.3"/>
+      <polyline points="5.5,5.5 5.5,1.5 8,1.5 8,5 10.5,5 10.5,1.5 13,1.5 13,5 15.5,5 15.5,1.5 18,1.5 18,5 20,5" fill="none" stroke="#c8a245" stroke-width="0.6"/>
+      <rect x="3.7" y="7" width="18" height="18.5" fill="#b8bec6" stroke="#7d848c" stroke-width="0.3"/>
+      <text x="12.7" y="16" font-size="2.6" text-anchor="middle" fill="#2a2f35" font-weight="bold">ESP32-S3</text>
+      <text x="12.7" y="19.5" font-size="2" text-anchor="middle" fill="#2a2f35">WROOM-1</text>
+      <!-- filas de pines -->
+      <g fill="#d9c26a">
+        <rect x="0.6" y="8" width="1.3" height="54.6" rx="0.6"/>
+        <rect x="23.5" y="8" width="1.3" height="54.6" rx="0.6"/>
+      </g>
+      <!-- botones y puertos de la DevKit -->
+      <rect x="2.5" y="55" width="4" height="3" fill="#ddd"/><rect x="18.9" y="55" width="4" height="3" fill="#ddd"/>
+      <rect x="4" y="60.5" width="7.5" height="4.5" rx="1" fill="#9aa3ad" stroke="#555" stroke-width="0.3"/>
+      <rect x="14" y="60.5" width="7.5" height="4.5" rx="1" fill="#9aa3ad" stroke="#555" stroke-width="0.3"/>
+      <text x="1.5" y="11" font-size="1.8" fill="#ffffff">3V3</text>
+    </g>
+  </defs>
+
+  <!-- ===================== CORRECTO ===================== -->
+  <g transform="translate(18,24)">
+    <text x="50" y="-10" font-size="7" font-weight="bold" fill="#1b7a3a" text-anchor="middle">✓ CORRECTO</text>
+    <!-- trozo de placa con muesca -->
+    <path d="M 0 0 L 31 0 L 31 7.8 L 71 7.8 L 71 0 L 100 0 L 100 100 L 0 100 Z" fill="#1f5f3a"/>
+    <text x="51" y="12.5" font-size="2.6" fill="#f4f4f0" text-anchor="middle" font-weight="bold">ANTENA</text>
+    <use href="#zocalo" x="39.6" y="9.6"/>
+    <use href="#zocalo" x="62.46" y="9.6"/>
+    <text x="35" y="12" font-size="2.6" fill="#f4f4f0" text-anchor="end">J2</text>
+    <text x="67" y="12" font-size="2.6" fill="#f4f4f0">J3</text>
+    <!-- DevKit encima, ligeramente transparente -->
+    <g transform="translate(38.33,3)" opacity="0.93"><use href="#devkit"/></g>
+    <!-- anotaciones -->
+    <path d="M 51 -2 L 51 2" stroke="#d0452f" stroke-width="0.8"/>
+    <polygon points="51,3.5 48.8,-0.5 53.2,-0.5" fill="#d0452f"/>
+    <text x="104" y="4" font-size="3.4" fill="#1d2733" font-weight="bold">Antena sobre la muesca</text>
+    <text x="104" y="8.5" font-size="3" fill="#4a5560">(el texto «ANTENA» de la placa)</text>
+    <line x1="72" y1="4" x2="103" y2="4" stroke="#1d2733" stroke-width="0.35"/>
+    <text x="104" y="68" font-size="3.4" fill="#1d2733" font-weight="bold">Puertos USB de la DevKit</text>
+    <text x="104" y="72.5" font-size="3" fill="#4a5560">hacia el centro de la placa (sur).</text>
+    <text x="104" y="77" font-size="3" fill="#c0392b" font-weight="bold">No los uses con J10 conectado.</text>
+    <line x1="60" y1="65.7" x2="103" y2="68" stroke="#1d2733" stroke-width="0.35"/>
+    <text x="104" y="30" font-size="3.4" fill="#1d2733" font-weight="bold">Pin 3V3 de la DevKit</text>
+    <text x="104" y="34.5" font-size="3" fill="#4a5560">sobre el pin 1 de J2</text>
+    <line x1="40" y1="13" x2="103" y2="30" stroke="#1d2733" stroke-width="0.35"/>
+    <text x="50" y="108" font-size="3" fill="#4a5560" text-anchor="middle">Vista superior · norte arriba</text>
+  </g>
+
+  <!-- ===================== INCORRECTO ===================== -->
+  <g transform="translate(200,24)">
+    <text x="50" y="-10" font-size="7" font-weight="bold" fill="#c0392b" text-anchor="middle">✗ AL REVÉS</text>
+    <path d="M 0 0 L 31 0 L 31 7.8 L 71 7.8 L 71 0 L 100 0 L 100 100 L 0 100 Z" fill="#1f5f3a"/>
+    <text x="51" y="12.5" font-size="2.6" fill="#f4f4f0" text-anchor="middle" font-weight="bold">ANTENA</text>
+    <use href="#zocalo" x="39.6" y="9.6"/>
+    <use href="#zocalo" x="62.46" y="9.6"/>
+    <g transform="translate(63.73,74) rotate(180)" opacity="0.93"><use href="#devkit"/></g>
+    <line x1="10" y1="10" x2="90" y2="90" stroke="#c0392b" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+    <line x1="90" y1="10" x2="10" y2="90" stroke="#c0392b" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+    <text x="50" y="108" font-size="3.2" fill="#c0392b" text-anchor="middle" font-weight="bold">3V3 queda sobre GND: cortocircuito</text>
+    <text x="50" y="113" font-size="3.2" fill="#c0392b" text-anchor="middle" font-weight="bold">y la DevKit o la placa se estropean</text>
+  </g>
+
+  <!-- ===================== VISTA LATERAL ===================== -->
+  <g transform="translate(30,160)">
+    <text x="0" y="-6" font-size="4.2" font-weight="bold" fill="#1d2733">Vista lateral: inserción</text>
+    <!-- placa -->
+    <rect x="0" y="40" width="160" height="3.2" fill="#1f5f3a"/>
+    <!-- zócalos -->
+    <rect x="20" y="31.5" width="120" height="8.5" fill="#262626"/>
+    <!-- devkit levantada -->
+    <rect x="14" y="6" width="132" height="3" fill="#14202e"/>
+    <rect x="30" y="2" width="66" height="4" fill="#b8bec6"/>
+    <rect x="14" y="2.5" width="16" height="3.5" fill="#f0ead6"/>
+    <text x="22" y="5.4" font-size="2.4" text-anchor="middle" fill="#6d6440">antena</text>
+    <g stroke="#d9c26a" stroke-width="0.9">
+      <line x1="24" y1="9" x2="24" y2="20"/><line x1="34" y1="9" x2="34" y2="20"/><line x1="44" y1="9" x2="44" y2="20"/>
+      <line x1="54" y1="9" x2="54" y2="20"/><line x1="64" y1="9" x2="64" y2="20"/><line x1="74" y1="9" x2="74" y2="20"/>
+      <line x1="84" y1="9" x2="84" y2="20"/><line x1="94" y1="9" x2="94" y2="20"/><line x1="104" y1="9" x2="104" y2="20"/>
+      <line x1="114" y1="9" x2="114" y2="20"/><line x1="124" y1="9" x2="124" y2="20"/><line x1="134" y1="9" x2="134" y2="20"/>
+    </g>
+    <g fill="#1d2733">
+      <polygon points="40,22 36,16 44,16"/><polygon points="120,22 116,16 124,16"/>
+    </g>
+    <line x1="40" y1="14" x2="40" y2="-1" stroke="#1d2733" stroke-width="0.8"/>
+    <line x1="120" y1="14" x2="120" y2="-1" stroke="#1d2733" stroke-width="0.8"/>
+    <text x="170" y="12" font-size="3.4" fill="#1d2733" font-weight="bold">Alinea todos los pines antes de apretar</text>
+    <text x="170" y="17" font-size="3.1" fill="#4a5560">y presiona recto, por igual en los dos extremos.</text>
+    <text x="170" y="24" font-size="3.1" fill="#4a5560">Para sacarla, haz palanca poco a poco desde</text>
+    <text x="170" y="29" font-size="3.1" fill="#4a5560">ambos lados; no la tuerzas.</text>
+    <text x="170" y="38" font-size="3.1" fill="#4a5560">Zócalos J2/J3 · placa OCX</text>
+  </g>
+</svg>
