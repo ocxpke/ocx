@@ -7,7 +7,7 @@
 	(title_block
 		(title "OCX_Prototype")
 		(date "2026-10-25")
-		(rev "1.0")
+		(rev "1.1")
 		(company "JoseRamirezGiron")
 	)
 	(lib_symbols
@@ -6159,6 +6159,16 @@
 	)
 	(wire
 		(pts
+			(xy 88.9 101.6) (xy 100.33 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1784a7ce-d2c7-4881-a323-faeeb91586e0")
+	)
+	(wire
+		(pts
 			(xy 234.95 21.59) (xy 234.95 25.4)
 		)
 		(stroke
@@ -7326,16 +7336,6 @@
 			(type default)
 		)
 		(uuid "7d64b094-8300-4c07-b75a-46d2772e515b")
-	)
-	(wire
-		(pts
-			(xy 88.9 101.6) (xy 100.33 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d765455-ce86-4c0e-8d24-79fd0a3fa829")
 	)
 	(wire
 		(pts
@@ -11985,6 +11985,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 27.94 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7cdfbee6-1b01-45c6-99c3-5fbc6f7e7c5a")
 		)
@@ -12177,6 +12188,17 @@
 			)
 		)
 		(property "MPN" "CL05B104KO5NNNC"
+			(at 166.37 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 166.37 20.32 0)
 			(hide yes)
 			(show_name no)
@@ -12601,6 +12623,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 31.75 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "258ea9ca-6ef7-4600-8669-95f76a623263")
 		)
@@ -12725,6 +12758,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 259.08 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b76d004e-fc53-4c54-8952-ed9c2229486e")
 		)
@@ -12839,6 +12883,17 @@
 			)
 		)
 		(property "MPN" "MLD-TS-6X6X5-J"
+			(at 110.49 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" "Center"
 			(at 110.49 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -13044,6 +13099,17 @@
 			)
 		)
 		(property "MPN" "CC0805KRX7R9BB104"
+			(at 33.02 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 33.02 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -13492,6 +13558,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 102.87 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "27e72308-6ed1-4fae-ab14-84218b6ebffd")
 		)
@@ -13608,6 +13685,17 @@
 			)
 		)
 		(property "MPN" "0805W8F1002T5E"
+			(at 168.91 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 168.91 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -13812,6 +13900,17 @@
 			)
 		)
 		(property "MPN" "0402CG330J500NT"
+			(at 156.21 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 156.21 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -14081,6 +14180,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 13.97 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3e0f2f42-eef3-4200-ac0f-5293d3069ca1")
 		)
@@ -14192,6 +14302,17 @@
 			)
 		)
 		(property "MPN" "MLD-TS-6X6X5-J"
+			(at 36.83 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" "Center"
 			(at 36.83 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -14407,6 +14528,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 177.8 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "bcbbf6b8-dae8-454b-907b-a06fac353b33")
 		)
@@ -14610,6 +14742,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 156.21 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "11e71d43-4cc6-4a84-a05c-059ebc497fe5")
 		)
@@ -14737,6 +14880,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 234.95 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4d5b8dbf-7224-43af-8212-e00cc90f9a1b")
 		)
@@ -14831,6 +14985,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 57.15 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 57.15 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -14955,6 +15120,17 @@
 			)
 		)
 		(property "MPN" "CL05B104KO5NNNC"
+			(at 200.66 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 200.66 20.32 0)
 			(hide yes)
 			(show_name no)
@@ -15092,6 +15268,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 223.52 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "1935da0c-e816-4823-9fe7-ea7af1014686")
 		)
@@ -15209,6 +15396,17 @@
 			)
 		)
 		(property "MPN" "CC0805KRX7R9BB104"
+			(at 116.84 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 116.84 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -15346,6 +15544,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 151.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b1e1f49a-0cef-4f13-8517-4728603cd6af")
 		)
@@ -15460,6 +15669,17 @@
 			)
 		)
 		(property "MPN" "0402WGF330JTCE"
+			(at 245.11 72.39 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 245.11 72.39 90)
 			(hide yes)
 			(show_name no)
@@ -15586,6 +15806,17 @@
 			)
 		)
 		(property "MPN" "X503212MSB4SI"
+			(at 139.7 66.04 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 139.7 66.04 90)
 			(hide yes)
 			(show_name no)
@@ -15797,6 +16028,17 @@
 			)
 		)
 		(property "MPN" "CL05A105KA5NQNC"
+			(at 214.63 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 214.63 19.05 0)
 			(hide yes)
 			(show_name no)
@@ -16089,6 +16331,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 245.11 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "51434d22-faa0-43aa-b06c-9ab831b16d72")
 		)
@@ -16371,6 +16624,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 172.72 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "89ee865a-c21b-49d5-9756-a98e75c7c9b0")
 		)
@@ -16498,6 +16762,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 189.23 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0dbc9ff6-1108-42bd-aed2-60da5a44fe9c")
 		)
@@ -16611,6 +16886,17 @@
 			)
 		)
 		(property "MPN" "FH2.54-09-22PZD"
+			(at 83.82 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" "Center"
 			(at 83.82 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -16884,6 +17170,17 @@
 				)
 			)
 		)
+		(property "FT Origin" "Center"
+			(at 69.85 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "14"
 			(uuid "7d8d8dd4-786a-472e-b72d-0579d8c7e254")
 		)
@@ -17038,6 +17335,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 44.45 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 44.45 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -17248,6 +17556,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 149.86 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "328730c4-c6a3-4373-a8d6-e4dad12900a4")
 		)
@@ -17365,6 +17684,17 @@
 			)
 		)
 		(property "MPN" "CC0805KRX7R9BB104"
+			(at 24.13 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 24.13 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -17502,6 +17832,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 246.38 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b0331c17-275e-4d12-a9c0-af64062bbe26")
 		)
@@ -17596,6 +17937,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 19.05 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 19.05 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -17862,6 +18214,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 271.78 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "db83546c-4cb3-420f-9216-d1f84810ade9")
 		)
@@ -17974,6 +18337,17 @@
 			)
 		)
 		(property "MPN" "BT817Q-R"
+			(at 210.82 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 210.82 91.44 0)
 			(hide yes)
 			(show_name no)

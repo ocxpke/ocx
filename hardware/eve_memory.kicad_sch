@@ -4,6 +4,12 @@
 	(generator_version "10.0")
 	(uuid "2caa3b12-e803-4f40-8f7a-01833b59ad77")
 	(paper "A4")
+	(title_block
+		(title "OCX_Prototype")
+		(date "2026-10-25")
+		(rev "1.1")
+		(company "JoseRamirezGiron")
+	)
 	(lib_symbols
 		(symbol "C_Small_1"
 			(pin_numbers
@@ -1315,6 +1321,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 161.29 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e527f381-19e1-4e8e-a0db-4bd00e5382ec")
 		)
@@ -1509,6 +1526,17 @@
 			)
 		)
 		(property "MPN" "0805W8F1002T5E"
+			(at 106.68 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 106.68 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -1723,6 +1751,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 129.54 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6079fa22-d1d5-4446-9845-4d09661e6989")
 		)
@@ -1849,6 +1888,17 @@
 				)
 			)
 		)
+		(property "FT Origin" ""
+			(at 91.44 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "8890e88c-57af-4748-a940-53e40c7de58a")
 		)
@@ -1964,6 +2014,17 @@
 			)
 		)
 		(property "MPN" "W25Q128JVSIQ"
+			(at 144.78 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "FT Origin" ""
 			(at 144.78 90.17 0)
 			(hide yes)
 			(show_name no)
