@@ -1,0 +1,86 @@
+# Banco desechable en QEMU esp_develop_9.2.2 (maquina esp32s3, PSRAM octal 32M), ESP-IDF v5.5.6, GCC 14.2.0.
+# -icount shift=0: 1 us de esp_timer = 1000 instrucciones ejecutadas (ver CALIB). OP = instrucciones por iteracion (incluye bucle).
+# CUB/FDF: us/frame = miles de instrucciones por fotograma. cc/frame no es significativo (CCOUNT de QEMU a 40 MHz virtuales).
+BENCH start, CPU 80000000 Hz, free internal 324815, free PSRAM 33027428
+CALIB 10M insns: us=10017 cc=400679
+CALIB 10M insns: us=10017 cc=400678
+OP empty(volatile f)           4.0
+OP f add                       7.0
+OP f mul                       7.0
+OP f div                      42.1
+OP f sqrtf                    54.1
+OP f sinf                    114.2
+OP f cosf                    104.2
+OP f tanf                    186.3
+OP f atan2f                  213.3
+OP f floorf                   39.1
+OP f->int                      5.0
+OP int->f                      6.0
+OP empty(volatile d)           8.0
+OP d add                      62.1
+OP d mul                      78.1
+OP d div                     578.0
+OP d sqrt                    778.4
+OP d sin                    1414.5
+OP d cos                    1315.3
+OP d tan                    2869.0
+OP d floor                    84.2
+OP d->int                     30.1
+OP f->d                       28.0
+OP d->f                       32.0
+OP d cmp<                     28.1
+OP i mul                       8.0
+OP i div                       8.0
+CUB orig   320x240  colFC frame  rays=320 us/frame=    9440.8 cc/frame=    377629.1
+CUB float  320x240  colFC frame  rays=320 us/frame=    5937.1 cc/frame=    237484.8
+CUB double  320x240  colFC frame  rays=320 us/frame=   28731.1 cc/frame=   1149243.5
+CUB orig   320x240  texFC frame  rays=320 us/frame=   12432.2 cc/frame=    497287.1
+CUB float  320x240  texFC frame  rays=320 us/frame=    8953.4 cc/frame=    358133.7
+CUB double  320x240  texFC frame  rays=320 us/frame=   62273.9 cc/frame=   2490955.8
+CUB orig   400x240  colFC frame  rays=400 us/frame=   11806.6 cc/frame=    472263.9
+CUB float  400x240  colFC frame  rays=400 us/frame=    7421.2 cc/frame=    296847.9
+CUB double  400x240  colFC frame  rays=400 us/frame=   35922.4 cc/frame=   1436898.4
+CUB orig   400x240  texFC frame  rays=400 us/frame=   15545.9 cc/frame=    621837.6
+CUB float  400x240  texFC frame  rays=400 us/frame=   11191.5 cc/frame=    447659.9
+CUB double  400x240  texFC frame  rays=400 us/frame=   77867.5 cc/frame=   3114700.6
+CUB orig   800x480  colFC frame  rays=800 us/frame=   37604.0 cc/frame=   1504161.2
+CUB float  800x480  colFC frame  rays=800 us/frame=   28607.2 cc/frame=   1144289.5
+CUB double  800x480  colFC frame  rays=800 us/frame=  131181.7 cc/frame=   5247268.1
+CUB orig   800x480  texFC frame  rays=800 us/frame=   52596.7 cc/frame=   2103866.1
+CUB float  800x480  texFC frame  rays=800 us/frame=   43723.7 cc/frame=   1748948.1
+CUB double  800x480  texFC frame  rays=800 us/frame=  299318.8 cc/frame=  11972752.0
+CUB orig   320x240  colFC rays   rays=320 us/frame=    2299.4 cc/frame=     91976.9
+CUB float  320x240  colFC rays   rays=320 us/frame=     256.0 cc/frame=     10239.4
+CUB double  320x240  colFC rays   rays=320 us/frame=    2968.9 cc/frame=    118755.4
+CUB orig   400x240  colFC rays   rays=400 us/frame=    2880.2 cc/frame=    115208.1
+CUB float  400x240  colFC rays   rays=400 us/frame=     319.9 cc/frame=     12795.0
+CUB double  400x240  colFC rays   rays=400 us/frame=    3718.5 cc/frame=    148738.6
+CUB orig   800x480  colFC rays   rays=800 us/frame=    5758.6 cc/frame=    230343.5
+CUB float  800x480  colFC rays   rays=800 us/frame=     639.6 cc/frame=     25585.8
+CUB double  800x480  colFC rays   rays=800 us/frame=    7435.6 cc/frame=    297422.7
+CUB checksums 47137.776329 47137.776169 47137.775184
+FDF double 42     pts=   209 us/frame=    1611.2 px/frame=   13880
+FDF float  42     pts=   209 us/frame=    1159.5 px/frame=   13881
+FDF double 100-6  pts= 10100 us/frame=   38453.1 px/frame=  194677
+FDF float  100-6  pts= 10100 us/frame=   12439.8 px/frame=  194679
+FDF double mars   pts= 23200 us/frame=   71552.1 px/frame=  157855
+FDF float  mars   pts= 23200 us/frame=   13638.9 px/frame=  157860
+FDF double t1     pts= 40000 us/frame=  128412.3 px/frame=  801775
+FDF float  t1     pts= 40000 us/frame=   47849.2 px/frame=  801864
+MEMSET 760x456x4 us=     434.2
+CONV 320x240 RGBA8888->RGB565 us=    1000.2
+CONV 400x240 RGBA8888->RGB565 us=    1250.2
+CONV 800x480 RGBA8888->RGB565 us=    5000.5
+PNG s_north       10955 B -> 64x64 err=0 us=1180
+PNG w_1           12301 B -> 64x64 err=0 us=954
+PNG k_1            4810 B -> 64x64 err=0 us=510
+PNG leyenda      118117 B -> 500x500 err=0 us=36950
+PARSE 42        616 B rows=11 cols=19 matrix=14128 B us=525
+PARSE mars    50602 B rows=116 cols=200 matrix=1492692 B us=59068
+PARSE t1     382271 B rows=200 cols=200 matrix=2573604 B us=562424
+CUB opt565  320x240  colFC frame  rays=320 us/frame=    1413.8 cc/frame=     56552.5
+CUB opt565  320x240  texFC frame  rays=320 us/frame=    2286.8 cc/frame=     91472.8
+CUB opt565  400x240  colFC frame  rays=400 us/frame=    1764.0 cc/frame=     70561.3
+CUB opt565  400x240  texFC frame  rays=400 us/frame=    2855.3 cc/frame=    114212.9
+CUB opt565  800x480  colFC frame  rays=800 us/frame=    5696.4 cc/frame=    227854.9
+CUB opt565  800x480  texFC frame  rays=800 us/frame=   10063.9 cc/frame=    402553.8

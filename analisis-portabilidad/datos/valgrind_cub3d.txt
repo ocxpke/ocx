@@ -1,0 +1,35 @@
+# cub3D con src/draw_utils/ceiling_floor.c compilado a -O0 (resto -Ofast), mapa subject.cub (suelo/techo de color), valgrind 3.22
+==24324== Use of uninitialised value of size 8
+==24324==    at 0x11142A: color_of_ceil (src/draw_utils/ceiling_floor.c:20)
+==24324==    by 0x1113DE: draw_ceil (src/draw_utils/ceiling_floor.c:63)
+==24324==    by 0x10E57B: draw_ceil_wall_floor (line_algorithym.c:88)
+==24324==    by 0x10E57B: draw_player_view_line (line_algorithym.c:107)
+==24324==    by 0x10F683: draw_frame_cols (raycasting.c:95)
+==24324==    by 0x10F683: draw_rays (raycasting.c:132)
+==24324==    by 0x11110D: re_draw (src/main.c:40)
+==24324==    by 0x1111BE: main (src/main.c:70)
+==24324==  Uninitialised value was created by a stack allocation
+==24324==    at 0x111136: main (src/main.c:58)
+==24324== Invalid read of size 8
+==24324==    at 0x11142A: color_of_ceil (src/draw_utils/ceiling_floor.c:20)
+==24324==    by 0x1113DE: draw_ceil (src/draw_utils/ceiling_floor.c:63)
+==24324==    by 0x10E57B: draw_ceil_wall_floor (line_algorithym.c:88)
+==24324==    by 0x10E57B: draw_player_view_line (line_algorithym.c:107)
+==24324==    by 0x10F683: draw_frame_cols (raycasting.c:95)
+==24324==    by 0x10F683: draw_rays (raycasting.c:132)
+==24324==    by 0x11110D: re_draw (src/main.c:40)
+==24324==    by 0x1111BE: main (src/main.c:70)
+==24324==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==24324== Process terminating with default action of signal 11 (SIGSEGV)
+==24324==    at 0x11142A: color_of_ceil (src/draw_utils/ceiling_floor.c:20)
+==24324==    by 0x1113DE: draw_ceil (src/draw_utils/ceiling_floor.c:63)
+==24324==    by 0x10E57B: draw_ceil_wall_floor (line_algorithym.c:88)
+==24324==    by 0x10E57B: draw_player_view_line (line_algorithym.c:107)
+==24324==    by 0x10F683: draw_frame_cols (raycasting.c:95)
+==24324==    by 0x10F683: draw_rays (raycasting.c:132)
+==24324==    by 0x11110D: re_draw (src/main.c:40)
+==24324==    by 0x1111BE: main (src/main.c:70)
+==24324== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+# Mismo binario con todo a -Ofast (como el Makefile original):
+==24279== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

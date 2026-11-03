@@ -1,0 +1,211 @@
+# cub3D (ocxpke/cub3D @394f89f) en Linux: clang -Ofast, MLX42 2.4.2, GLFW 3.3.10, Xvfb, Mesa llvmpipe.
+# 400 fotogramas por mapa con teclas sinteticas (10 % quieto, 30 % girando, 30 % andando, 30 % lateral+giro).
+# Contadores por --wrap del enlazador: mlx_put_pixel, memset/ft_memset >= 4 KiB, heap de la app + MLX42 (lado CPU).
+
+## cub_1920x1080_diamonds
+[instr] mlx_new_image 1920x1080 (8294400 B)
+[instr] mlx_new_image 480x270 (518400 B)
+[instr] frames=400
+[instr] put_pixel total=868401619  avg/frame=2171004  max/frame=4308738
+[instr]   img0 1920x1080: avg/frame=2107144 max/frame=4233402
+[instr]   img1 480x270: avg/frame=63860 max/frame=105091
+[instr] memset(>=4KB) total=187142400 B  avg/frame=467856  max/frame=518400
+[instr] app CPU per frame (x86, hooks): avg=37.670 ms max=127.972 ms
+[instr] frame period avg=39.673 ms
+[instr] heap (app+MLX42 CPU side) peak=9609008 B  live_at_exit=0 B  allocs=1353 frees=1353  biggest=8294400 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_1920x1080_k_p
+[instr] mlx_new_image 1920x1080 (8294400 B)
+[instr] mlx_new_image 480x270 (518400 B)
+[instr] frames=400
+[instr] put_pixel total=854104520  avg/frame=2135261  max/frame=4195620
+[instr]   img0 1920x1080: avg/frame=2087758 max/frame=4147200
+[instr]   img1 480x270: avg/frame=47504 max/frame=81036
+[instr] memset(>=4KB) total=187142400 B  avg/frame=467856  max/frame=518400
+[instr] app CPU per frame (x86, hooks): avg=35.625 ms max=100.872 ms
+[instr] frame period avg=37.669 ms
+[instr] heap (app+MLX42 CPU side) peak=9609640 B  live_at_exit=0 B  allocs=1311 frees=1311  biggest=8294400 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_1920x1080_subject
+[instr] mlx_new_image 1920x1080 (8294400 B)
+[instr] mlx_new_image 480x270 (518400 B)
+[instr] frames=400
+[instr] put_pixel total=849169234  avg/frame=2122923  max/frame=4195234
+[instr]   img0 1920x1080: avg/frame=2078784 max/frame=4147200
+[instr]   img1 480x270: avg/frame=44139 max/frame=88722
+[instr] memset(>=4KB) total=187142400 B  avg/frame=467856  max/frame=518400
+[instr] app CPU per frame (x86, hooks): avg=22.202 ms max=39.808 ms
+[instr] frame period avg=24.157 ms
+[instr] heap (app+MLX42 CPU side) peak=9219328 B  live_at_exit=0 B  allocs=560 frees=560  biggest=8294400 B
+[instr] textures loaded=5  decoded bytes=81920
+
+## cub_1920x1080_valid_simple_map_cat_textures
+[instr] mlx_new_image 1920x1080 (8294400 B)
+[instr] mlx_new_image 480x270 (518400 B)
+[instr] frames=400
+[instr] put_pixel total=858873115  avg/frame=2147183  max/frame=4210139
+[instr]   img0 1920x1080: avg/frame=2078784 max/frame=4147200
+[instr]   img1 480x270: avg/frame=68399 max/frame=125971
+[instr] memset(>=4KB) total=187142400 B  avg/frame=467856  max/frame=518400
+[instr] app CPU per frame (x86, hooks): avg=32.406 ms max=54.555 ms
+[instr] frame period avg=34.410 ms
+[instr] heap (app+MLX42 CPU side) peak=9425328 B  live_at_exit=0 B  allocs=995 frees=995  biggest=8294400 B
+[instr] textures loaded=17  decoded bytes=278528
+
+## cub_320x240_diamonds
+[instr] mlx_new_image 320x240 (307200 B)
+[instr] mlx_new_image 80x60 (19200 B)
+[instr] frames=400
+[instr] put_pixel total=32914524  avg/frame=82286  max/frame=162341
+[instr]   img0 320x240: avg/frame=78482 max/frame=157854
+[instr]   img1 80x60: avg/frame=3804 max/frame=5488
+[instr] memset(>=4KB) total=6931200 B  avg/frame=17328  max/frame=19200
+[instr] app CPU per frame (x86, hooks): avg=2.022 ms max=8.008 ms
+[instr] frame period avg=2.244 ms
+[instr] heap (app+MLX42 CPU side) peak=1120840 B  live_at_exit=0 B  allocs=1353 frees=1353  biggest=307200 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_320x240_k_p
+[instr] mlx_new_image 320x240 (307200 B)
+[instr] mlx_new_image 80x60 (19200 B)
+[instr] frames=400
+[instr] put_pixel total=31846452  avg/frame=79616  max/frame=155288
+[instr]   img0 320x240: avg/frame=77537 max/frame=153600
+[instr]   img1 80x60: avg/frame=2080 max/frame=3314
+[instr] memset(>=4KB) total=6931200 B  avg/frame=17328  max/frame=19200
+[instr] app CPU per frame (x86, hooks): avg=2.043 ms max=9.563 ms
+[instr] frame period avg=2.307 ms
+[instr] heap (app+MLX42 CPU side) peak=1121488 B  live_at_exit=0 B  allocs=1311 frees=1311  biggest=307200 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_320x240_subject
+[instr] mlx_new_image 320x240 (307200 B)
+[instr] mlx_new_image 80x60 (19200 B)
+[instr] frames=400
+[instr] put_pixel total=31674521  avg/frame=79186  max/frame=156361
+[instr]   img0 320x240: avg/frame=76992 max/frame=153600
+[instr]   img1 80x60: avg/frame=2194 max/frame=2761
+[instr] memset(>=4KB) total=6931200 B  avg/frame=17328  max/frame=19200
+[instr] app CPU per frame (x86, hooks): avg=1.029 ms max=17.467 ms
+[instr] frame period avg=1.281 ms
+[instr] heap (app+MLX42 CPU side) peak=731128 B  live_at_exit=0 B  allocs=560 frees=560  biggest=307200 B
+[instr] textures loaded=5  decoded bytes=81920
+
+## cub_320x240_valid_simple_map_cat_textures
+[instr] mlx_new_image 320x240 (307200 B)
+[instr] mlx_new_image 80x60 (19200 B)
+[instr] frames=400
+[instr] put_pixel total=31967294  avg/frame=79918  max/frame=157625
+[instr]   img0 320x240: avg/frame=76992 max/frame=153600
+[instr]   img1 80x60: avg/frame=2926 max/frame=4025
+[instr] memset(>=4KB) total=6931200 B  avg/frame=17328  max/frame=19200
+[instr] app CPU per frame (x86, hooks): avg=1.244 ms max=6.838 ms
+[instr] frame period avg=1.498 ms
+[instr] heap (app+MLX42 CPU side) peak=937192 B  live_at_exit=0 B  allocs=995 frees=995  biggest=307200 B
+[instr] textures loaded=17  decoded bytes=278528
+
+## cub_400x240_diamonds
+[instr] mlx_new_image 400x240 (384000 B)
+[instr] mlx_new_image 100x60 (24000 B)
+[instr] frames=400
+[instr] put_pixel total=42199501  avg/frame=105499  max/frame=202956
+[instr]   img0 400x240: avg/frame=99179 max/frame=196254
+[instr]   img1 100x60: avg/frame=6319 max/frame=8951
+[instr] memset(>=4KB) total=8664000 B  avg/frame=21660  max/frame=24000
+[instr] app CPU per frame (x86, hooks): avg=2.555 ms max=11.385 ms
+[instr] frame period avg=2.789 ms
+[instr] heap (app+MLX42 CPU side) peak=1199352 B  live_at_exit=0 B  allocs=1353 frees=1353  biggest=384000 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_400x240_k_p
+[instr] mlx_new_image 400x240 (384000 B)
+[instr] mlx_new_image 100x60 (24000 B)
+[instr] frames=400
+[instr] put_pixel total=40130509  avg/frame=100326  max/frame=195060
+[instr]   img0 400x240: avg/frame=96929 max/frame=192000
+[instr]   img1 100x60: avg/frame=3398 max/frame=5260
+[instr] memset(>=4KB) total=8664000 B  avg/frame=21660  max/frame=24000
+[instr] app CPU per frame (x86, hooks): avg=2.145 ms max=10.267 ms
+[instr] frame period avg=2.397 ms
+[instr] heap (app+MLX42 CPU side) peak=1200000 B  live_at_exit=0 B  allocs=1311 frees=1311  biggest=384000 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_400x240_subject
+[instr] mlx_new_image 400x240 (384000 B)
+[instr] mlx_new_image 100x60 (24000 B)
+[instr] frames=400
+[instr] put_pixel total=39797714  avg/frame=99494  max/frame=196084
+[instr]   img0 400x240: avg/frame=96240 max/frame=192000
+[instr]   img1 100x60: avg/frame=3254 max/frame=4084
+[instr] memset(>=4KB) total=8664000 B  avg/frame=21660  max/frame=24000
+[instr] app CPU per frame (x86, hooks): avg=1.223 ms max=5.927 ms
+[instr] frame period avg=1.473 ms
+[instr] heap (app+MLX42 CPU side) peak=809640 B  live_at_exit=0 B  allocs=560 frees=560  biggest=384000 B
+[instr] textures loaded=5  decoded bytes=81920
+
+## cub_400x240_valid_simple_map_cat_textures
+[instr] mlx_new_image 400x240 (384000 B)
+[instr] mlx_new_image 100x60 (24000 B)
+[instr] frames=400
+[instr] put_pixel total=40444520  avg/frame=101111  max/frame=198643
+[instr]   img0 400x240: avg/frame=96240 max/frame=192000
+[instr]   img1 100x60: avg/frame=4871 max/frame=6643
+[instr] memset(>=4KB) total=8664000 B  avg/frame=21660  max/frame=24000
+[instr] app CPU per frame (x86, hooks): avg=1.538 ms max=3.270 ms
+[instr] frame period avg=1.784 ms
+[instr] heap (app+MLX42 CPU side) peak=1015704 B  live_at_exit=0 B  allocs=995 frees=995  biggest=384000 B
+[instr] textures loaded=17  decoded bytes=278528
+
+## cub_800x480_diamonds
+[instr] mlx_new_image 800x480 (1536000 B)
+[instr] mlx_new_image 200x120 (96000 B)
+[instr] frames=400
+[instr] put_pixel total=162418176  avg/frame=406045  max/frame=811238
+[instr]   img0 800x480: avg/frame=388116 max/frame=785194
+[instr]   img1 200x120: avg/frame=17929 max/frame=41001
+[instr] memset(>=4KB) total=34656000 B  avg/frame=86640  max/frame=96000
+[instr] app CPU per frame (x86, hooks): avg=6.817 ms max=36.934 ms
+[instr] frame period avg=7.305 ms
+[instr] heap (app+MLX42 CPU side) peak=2426440 B  live_at_exit=0 B  allocs=1353 frees=1353  biggest=1536000 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_800x480_k_p
+[instr] mlx_new_image 800x480 (1536000 B)
+[instr] mlx_new_image 200x120 (96000 B)
+[instr] frames=400
+[instr] put_pixel total=159458738  avg/frame=398647  max/frame=779440
+[instr]   img0 800x480: avg/frame=386028 max/frame=768000
+[instr]   img1 200x120: avg/frame=12619 max/frame=28194
+[instr] memset(>=4KB) total=34656000 B  avg/frame=86640  max/frame=96000
+[instr] app CPU per frame (x86, hooks): avg=6.918 ms max=26.229 ms
+[instr] frame period avg=7.429 ms
+[instr] heap (app+MLX42 CPU side) peak=2427056 B  live_at_exit=0 B  allocs=1311 frees=1311  biggest=1536000 B
+[instr] textures loaded=29  decoded bytes=475136
+
+## cub_800x480_subject
+[instr] mlx_new_image 800x480 (1536000 B)
+[instr] mlx_new_image 200x120 (96000 B)
+[instr] frames=400
+[instr] put_pixel total=159113317  avg/frame=397783  max/frame=783536
+[instr]   img0 800x480: avg/frame=384960 max/frame=768000
+[instr]   img1 200x120: avg/frame=12823 max/frame=27715
+[instr] memset(>=4KB) total=34656000 B  avg/frame=86640  max/frame=96000
+[instr] app CPU per frame (x86, hooks): avg=4.074 ms max=8.935 ms
+[instr] frame period avg=4.515 ms
+[instr] heap (app+MLX42 CPU side) peak=2036760 B  live_at_exit=0 B  allocs=560 frees=560  biggest=1536000 B
+[instr] textures loaded=5  decoded bytes=81920
+
+## cub_800x480_valid_simple_map_cat_textures
+[instr] mlx_new_image 800x480 (1536000 B)
+[instr] mlx_new_image 200x120 (96000 B)
+[instr] frames=400
+[instr] put_pixel total=161801953  avg/frame=404505  max/frame=793778
+[instr]   img0 800x480: avg/frame=384960 max/frame=768000
+[instr]   img1 200x120: avg/frame=19545 max/frame=54238
+[instr] memset(>=4KB) total=34656000 B  avg/frame=86640  max/frame=96000
+[instr] app CPU per frame (x86, hooks): avg=6.525 ms max=12.811 ms
+[instr] frame period avg=7.030 ms
+[instr] heap (app+MLX42 CPU side) peak=2242776 B  live_at_exit=0 B  allocs=995 frees=995  biggest=1536000 B
+[instr] textures loaded=17  decoded bytes=278528

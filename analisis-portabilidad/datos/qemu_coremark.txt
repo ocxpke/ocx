@@ -1,0 +1,10 @@
+# CoreMark (EEMBC, port de espressif/idf-extra-components: -O3 -fjump-tables -ftree-switch-conversion, codigo en IRAM)
+# QEMU esp32s3 con -icount shift=0: 1 tick (ms) = 1e6 instrucciones.
+CoreMark Size    : 666
+Total ticks      : 16795
+Iterations/Sec   : 3572.491813
+Iterations       : 60000
+Compiler version : GCC14.2.0
+[0]crcfinal      : 0xbd59
+Correct operation validated. See README.md for run and reporting rules.
+CoreMark 1.0 : 3572.491813 / GCC14.2.0 -ffunction-sections -fdata-sections -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -O3 -fjump-tables -ftree-switch-conversion / IRAM
