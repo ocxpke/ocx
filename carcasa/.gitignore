@@ -1,0 +1,3 @@
+# Intermedios que se regeneran con scripts/construir.py
+build/
+__pycache__/
