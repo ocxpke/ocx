@@ -1,0 +1,31 @@
+ERC report (2026-11-04T16:29:29, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[footprint_filter]: Assigned footprint doesn't match footprint filters
+    ; error (excluded)
+    @(251.46 mm, 88.90 mm): Symbol J6 [Conn_01x05]
+[footprint_filter]: Assigned footprint doesn't match footprint filters
+    ; error (excluded)
+    @(251.46 mm, 114.30 mm): Symbol J7 [Conn_01x05]
+[footprint_filter]: Assigned footprint doesn't match footprint filters
+    ; error (excluded)
+    @(204.47 mm, 35.56 mm): Symbol J4 [Conn_01x06]
+[footprint_filter]: Assigned footprint doesn't match footprint filters
+    ; error (excluded)
+    @(204.47 mm, 106.68 mm): Symbol J1 [Conn_01x40]
+
+***** Sheet /Power_Supply_USB/
+
+***** Sheet /Buttons_Joysticks/
+
+***** Sheet /Audio_Conv/
+
+***** Sheet /EVE_Memory/
+
+***** Sheet /Screen_Ctrl/
+
+ ** ERC messages: 4  Errors 4  Warnings 0
+
+ ** Ignored checks:
+    - None
