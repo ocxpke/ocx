@@ -1,0 +1,156 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-04T16:29:40",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [],
+    "source": "ocxPrototype.kicad_pcb",
+    "unconnected_items": [
+        {
+            "comment": "",
+            "description": "Missing connection between items",
+            "excluded": true,
+            "items": [
+                {
+                    "description": "Track [/Power_Supply_USB/USB_C_D+] on F.Cu, length 1.2125 mm",
+                    "pos": {
+                        "x": 208.93,
+                        "y": 114.1875
+                    },
+                    "uuid": "44f6399c-3095-4891-998b-3261f03f8672"
+                },
+                {
+                    "description": "Track [/Power_Supply_USB/USB_C_D+] on F.Cu, length 0.9938 mm",
+                    "pos": {
+                        "x": 208.93,
+                        "y": 111.9125
+                    },
+                    "uuid": "1c9513a1-58af-415f-9441-4f815b49f254"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "comment": "",
+            "description": "Missing connection between items",
+            "excluded": true,
+            "items": [
+                {
+                    "description": "Track [/Power_Supply_USB/USB_C_D-] on F.Cu, length 0.9938 mm",
+                    "pos": {
+                        "x": 207.03,
+                        "y": 111.9125
+                    },
+                    "uuid": "03b23961-2cb6-41c9-ac5b-06b7aa5d034c"
+                },
+                {
+                    "description": "Track [/Power_Supply_USB/USB_C_D-] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 206.98,
+                        "y": 114.2375
+                    },
+                    "uuid": "2665f4d8-e06c-4af1-b72f-e83c2c32667b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "comment": "",
+            "description": "Silkscreen clipped by board edge",
+            "excluded": true,
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 241.0,
+                        "y": 129.900317
+                    },
+                    "uuid": "9eadcacd-c817-4858-9300-dbbda96ff4a1"
+                },
+                {
+                    "description": "Segment of J10 on F.Silkscreen",
+                    "pos": {
+                        "x": 203.78,
+                        "y": 128.25
+                    },
+                    "uuid": "71cb3216-230f-4b5f-834e-22dbb0806528"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "comment": "",
+            "description": "Silkscreen clipped by board edge",
+            "excluded": true,
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 241.0,
+                        "y": 129.900317
+                    },
+                    "uuid": "9eadcacd-c817-4858-9300-dbbda96ff4a1"
+                },
+                {
+                    "description": "Segment of J10 on F.Silkscreen",
+                    "pos": {
+                        "x": 213.18,
+                        "y": 128.25
+                    },
+                    "uuid": "7e57b26e-d4dd-4db1-8a9e-0c1e7bb7df03"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "comment": "",
+            "description": "Text thickness out of range (TrueType font characters with insufficient stroke weight)",
+            "excluded": true,
+            "items": [
+                {
+                    "description": "PCB text 'Jose Ramirez Giron' on F.Silkscreen",
+                    "pos": {
+                        "x": 88.4,
+                        "y": 29.8
+                    },
+                    "uuid": "fd4bffce-56ec-4217-a3b8-e5703c622682"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_thickness"
+        }
+    ]
+}

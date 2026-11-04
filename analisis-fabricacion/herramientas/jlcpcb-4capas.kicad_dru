@@ -1,0 +1,91 @@
+(version 1)
+# Reglas JLCPCB para placa multicapa (4 capas, 1 oz exterior / 0,5 oz interior).
+# Herramienta de COMPROBACIÓN: se copia como ocxPrototype.kicad_dru solo en una
+# copia de trabajo (generar.sh). No se usa en hardware/.
+#
+# Valores tomados de la tabla de capacidades de JLCPCB para multicapa tal y como
+# estaban publicados a la fecha de conocimiento del analista; jlcpcb.com no era
+# accesible desde el entorno de análisis. Confírmalos en
+# https://jlcpcb.com/capabilities/pcb-capabilities antes de dar nada por bueno.
+#
+# "error"   = por debajo del mínimo absoluto de fabricación.
+# "warning" = fabricable pero con sobrecoste o por debajo del valor recomendado.
+
+# --- Pistas y separaciones (multicapa: 3,5 mil = 0,09 mm) ---------------------
+(rule "JLC pista mínima"
+  (condition "A.Type == 'track' || A.Type == 'arc'")
+  (constraint track_width (min 0.09mm)))
+
+(rule "JLC separación cobre mínima"
+  (constraint clearance (min 0.09mm)))
+
+# --- Vías ---------------------------------------------------------------------
+(rule "JLC vía taladro mínimo"
+  (condition "A.Type == 'via'")
+  (constraint hole_size (min 0.15mm)))
+
+(rule "JLC vía diámetro mínimo"
+  (condition "A.Type == 'via'")
+  (constraint via_diameter (min 0.25mm)))
+
+(rule "JLC vía anillo mínimo"
+  (condition "A.Type == 'via'")
+  (constraint annular_width (min 0.05mm)))
+
+(rule "JLC vía <0,3 mm tiene sobrecoste"
+  (severity warning)
+  (condition "A.Type == 'via'")
+  (constraint hole_size (min 0.3mm)))
+
+# --- Taladros pasantes (PTH) y NPTH ---------------------------------------------
+(rule "JLC PTH anillo mínimo"
+  (condition "A.Type == 'pad' && A.Pad_Type == 'Through-hole'")
+  (constraint annular_width (min 0.13mm)))
+
+(rule "JLC PTH taladro mínimo"
+  (condition "A.Type == 'pad' && A.Pad_Type == 'Through-hole'")
+  (constraint hole_size (min 0.2mm)))
+
+(rule "JLC NPTH taladro mínimo"
+  (condition "A.Type == 'pad' && A.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_size (min 0.5mm)))
+
+(rule "JLC ranura metalizada mínima"
+  (condition "A.isPlated() && A.Hole_Size_X != A.Hole_Size_Y")
+  (constraint hole_size (min 0.5mm)))
+
+# Taladro a taladro: 0,5 mm entre redes distintas, 0,2 mm (vía-vía misma red).
+(rule "JLC taladro a taladro"
+  (constraint hole_to_hole (min 0.2mm)))
+
+(rule "JLC taladro a taladro (redes distintas)"
+  (condition "A.Net != B.Net")
+  (constraint hole_to_hole (min 0.5mm)))
+
+# Taladro a cobre (vía/PTH a pista): 0,2 mm (0,254 recomendado).
+(rule "JLC taladro a cobre"
+  (constraint hole_clearance (min 0.2mm)))
+
+# Pad a pad de redes distintas en THT: 0,5 mm (en SMD rige la separación general).
+(rule "JLC pad THT a pad THT (redes distintas)"
+  (condition "A.Type == 'pad' && B.Type == 'pad' && A.Pad_Type == 'Through-hole' && B.Pad_Type == 'Through-hole' && A.Net != B.Net")
+  (constraint clearance (min 0.5mm)))
+
+# --- Borde -------------------------------------------------------------------------
+(rule "JLC cobre a borde (fresado)"
+  (constraint edge_clearance (min 0.3mm)))
+
+# --- Serigrafía ------------------------------------------------------------------
+(rule "JLC serigrafía altura de texto"
+  (severity warning)
+  (condition "(A.Type == 'Text' || A.Type == 'Text Box' || A.Type == 'Field') && (A.Layer == 'F.Silkscreen' || A.Layer == 'B.Silkscreen')")
+  (constraint text_height (min 1.0mm)))
+
+(rule "JLC serigrafía grosor de trazo"
+  (severity warning)
+  (condition "(A.Type == 'Text' || A.Type == 'Text Box' || A.Type == 'Field') && (A.Layer == 'F.Silkscreen' || A.Layer == 'B.Silkscreen')")
+  (constraint text_thickness (min 0.15mm)))
+
+# Serigrafía sobre pads: no se define regla de distancia; KiCad ya avisa con
+# silk_over_copper y los Gerber se generan con --subtract-soldermask, que recorta
+# la serigrafía sobre las aberturas de máscara (lo que JLC hace igualmente).
