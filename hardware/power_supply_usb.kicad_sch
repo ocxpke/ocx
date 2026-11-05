@@ -3081,16 +3081,16 @@
 		(uuid "26d6f6a5-3c6b-4bc5-ab94-eb549905c248")
 	)
 	(junction
-		(at 45.72 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "302a961c-4c77-42ba-bfe8-f8881bd27b91")
-	)
-	(junction
 		(at 232.41 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "32f0c262-4e27-4080-becb-9f3414fe3476")
+	)
+	(junction
+		(at 45.72 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "358c8625-288a-442a-84dc-15f43ec57bbf")
 	)
 	(junction
 		(at 69.85 69.85)
@@ -3292,16 +3292,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 46.99) (xy 50.8 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "147af2d3-ef12-419b-8c11-345ed96314da")
-	)
-	(wire
-		(pts
 			(xy 86.36 73.66) (xy 86.36 72.39)
 		)
 		(stroke
@@ -3339,6 +3329,16 @@
 			(type default)
 		)
 		(uuid "1cc84bcd-eccf-4d52-a105-962e7b6b666c")
+	)
+	(wire
+		(pts
+			(xy 45.72 46.99) (xy 52.07 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e8969ce-a3b4-46c3-94a7-e359fcfb9f03")
 	)
 	(wire
 		(pts
@@ -3459,6 +3459,16 @@
 			(type default)
 		)
 		(uuid "272c86f9-6afa-4795-bb54-d42b0757f2b9")
+	)
+	(wire
+		(pts
+			(xy 45.72 46.99) (xy 45.72 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27b3812b-bf76-4a36-858c-2154d99268b5")
 	)
 	(wire
 		(pts
@@ -3702,6 +3712,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 46.99) (xy 63.5 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "610631cb-7eb6-4cda-b2c2-a854568d222e")
+	)
+	(wire
+		(pts
 			(xy 45.72 57.15) (xy 49.53 57.15)
 		)
 		(stroke
@@ -3739,16 +3759,6 @@
 			(type default)
 		)
 		(uuid "65c2d207-3f7c-4de9-90d3-4fdce4d5d061")
-	)
-	(wire
-		(pts
-			(xy 45.72 46.99) (xy 45.72 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "686d3e46-f347-4465-a898-75dfd340411e")
 	)
 	(wire
 		(pts
@@ -3942,7 +3952,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 46.99) (xy 62.23 48.26)
+			(xy 74.93 46.99) (xy 74.93 48.26)
 		)
 		(stroke
 			(width 0)
@@ -4372,7 +4382,7 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 46.99) (xy 62.23 46.99)
+			(xy 71.12 46.99) (xy 74.93 46.99)
 		)
 		(stroke
 			(width 0)
@@ -5834,7 +5844,7 @@
 				)
 			)
 		)
-		(property "FT Origin" "Center"
+		(property "FT Origin" "Anchor"
 			(at 46.99 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -5985,7 +5995,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 62.23 48.26 0)
+		(at 74.93 48.26 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5996,7 +6006,7 @@
 		(fields_autoplaced yes)
 		(uuid "545a11da-8bdd-407c-bb24-874f1a7f1eed")
 		(property "Reference" "#PWR073"
-			(at 62.23 54.61 0)
+			(at 74.93 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6007,7 +6017,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 62.23 53.34 0)
+			(at 74.93 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6017,7 +6027,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 62.23 48.26 0)
+			(at 74.93 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6028,7 +6038,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 62.23 48.26 0)
+			(at 74.93 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6039,7 +6049,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 62.23 48.26 0)
+			(at 74.93 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6389,7 +6399,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Polarized")
-		(at 54.61 46.99 90)
+		(at 67.31 46.99 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6400,7 +6410,7 @@
 		(fields_autoplaced yes)
 		(uuid "6f9f312c-1c03-41e6-b4ec-3ce0ba369189")
 		(property "Reference" "C40"
-			(at 53.721 39.37 90)
+			(at 66.421 39.37 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6410,7 +6420,7 @@
 			)
 		)
 		(property "Value" "100 uF"
-			(at 53.721 41.91 90)
+			(at 66.421 41.91 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6420,7 +6430,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.8"
-			(at 58.42 46.0248 0)
+			(at 71.12 46.0248 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6431,7 +6441,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 54.61 46.99 0)
+			(at 67.31 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6442,7 +6452,7 @@
 			)
 		)
 		(property "Description" "Polarized capacitor"
-			(at 54.61 46.99 0)
+			(at 67.31 46.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6453,7 +6463,7 @@
 			)
 		)
 		(property "LCSC" "C46550460"
-			(at 54.61 46.99 90)
+			(at 67.31 46.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6464,7 +6474,7 @@
 			)
 		)
 		(property "MPN" "MA16V100M6X6"
-			(at 54.61 46.99 90)
+			(at 67.31 46.99 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6905,6 +6915,108 @@
 			(project "ocxPrototype"
 				(path "/00cac875-c54d-4e9b-9608-ca7d878bb3a3/395dbbe7-bcd6-4e5a-855e-7ed6ac0024f9"
 					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 54.61 46.99 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8f58b496-7508-4747-8476-b690977dc975")
+		(property "Reference" "R28"
+			(at 54.61 41.91 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "0.1 Ohms 1%"
+			(at 54.61 44.45 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
+			(at 54.61 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 54.61 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 54.61 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25334"
+			(at 54.61 46.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1206W4F100LT5E"
+			(at 54.61 46.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "0beef219-177e-495d-aa53-8d5a0dadd156")
+		)
+		(pin "1"
+			(uuid "db29762b-1e63-458a-8777-4a8572bbb04c")
+		)
+		(instances
+			(project "ocxPrototype"
+				(path "/00cac875-c54d-4e9b-9608-ca7d878bb3a3/395dbbe7-bcd6-4e5a-855e-7ed6ac0024f9"
+					(reference "R28")
 					(unit 1)
 				)
 			)
