@@ -2,7 +2,8 @@
 """Renders PNG de la carcasa (necesita OpenSCAD y, sin pantalla, xvfb-run).
 
 Escribe en carcasa/img/:
-  montado.png, montado_trasera.png, explosionado.png, seccion.png,
+  montado.png, montado_trasera.png, explosionado.png, seccion.png, seccion_boot.png,
+  seccion_joystick.png (cable del joystick), seccion_tft.png (cola de la pantalla y alargador),
   pieza_<nn>_<nombre>.png (cada STL de stl/) y paso_<nn>.png (montaje).
 """
 import glob
@@ -31,6 +32,8 @@ TRABAJOS = [
     ('explosionado.png', {'escena': 'explosionado'}, cam_ojo((CX - 230, CY - 330, 240), (CX, CY, 25)), (1600, 1300), 'p'),
     ('seccion.png', {'escena': 'seccion'}, cam_ojo((CX, -49.75 - 170, 9), (CX, -49.75, 9)), (2000, 420), 'o', False),
     ('seccion_boot.png', {'escena': 'seccion_boot'}, cam_ojo((174.6 - 100, -45, 9), (174.6, -45, 9)), (1600, 560), 'o', False),
+    ('seccion_joystick.png', {'escena': 'seccion_joy'}, cam_ojo((37.5 - 100, -99, 11.5), (37.5, -99, 11.5)), (1600, 800), 'o', False),
+    ('seccion_tft.png', {'escena': 'seccion_tft'}, cam_ojo((108.74 - 100, -84, 11.5), (108.74, -84, 11.5)), (2100, 800), 'o', False),
 ]
 for k in range(1, 11):
     if k < 10:
@@ -56,8 +59,10 @@ def render(salida, defs, camara, tam, proy, viewall=True):
     return salida
 
 
-# Planos de corte: nombre -> (normal, desplazamiento): se conserva n·p >= d (coordenadas OpenSCAD)
-CORTES = {'y4975': ((0.0, 1.0, 0.0), -49.75), 'x1746': ((1.0, 0.0, 0.0), 174.6)}
+# Planos de corte: nombre -> (normal, desplazamiento, grosor): se conserva d <= n·p (<= d + grosor si lo hay),
+# en coordenadas OpenSCAD. Con grosor se dibuja solo una loncha y el fondo queda limpio.
+CORTES = {'y4975': ((0.0, 1.0, 0.0), -49.75, None), 'x1746': ((1.0, 0.0, 0.0), 174.6, None),
+          'x375': ((1.0, 0.0, 0.0), 37.5, 30.0), 'x10874': ((1.0, 0.0, 0.0), 108.74, 16.0)}
 CAPS_CORTE = ['SW2', 'SW13', 'SW1', 'SW8']
 
 
@@ -78,9 +83,12 @@ def preparar_cortes():
         mesh = m.to_mesh()
         trimesh.Trimesh(np.asarray(mesh.vert_properties)[:, :3], np.asarray(mesh.tri_verts), process=False).export(ruta)
 
-    for clave, (n, d) in CORTES.items():
+    for clave, (n, d, grosor) in CORTES.items():
         for nombre, m in piezas.items():
-            guarda(m.trim_by_plane(n, d), os.path.join(CARCASA, 'build', 'corte', clave, nombre + '.stl'))
+            m = m.trim_by_plane(n, d)
+            if grosor:
+                m = m.trim_by_plane(tuple(-v for v in n), -(d + grosor))
+            guarda(m, os.path.join(CARCASA, 'build', 'corte', clave, nombre + '.stl'))
     # primer plano de capuchones: cada uno con su trozo de pieza frontal, cortados por el eje
     import manifold3d as mf
     centros = {r: c for _, r, c, _ in datos['botones']}

@@ -100,7 +100,7 @@ module montaje(e = 0) {
   for (n = PIEZAS) translate(e * despl(n) / max(explosion, 0.001)) color(color_pieza(n)) pieza_montaje(n);
   if (con_electronica) translate([0, 0, e > 0 ? 0 : 0]) {
     electronica(con_pantalla = false);
-    translate(e > 0 ? [0, 0, 1.6 * e] : [0, 0, 0]) pantalla();
+    translate(e > 0 ? [0, 0, 1.6 * e] : [0, 0, 0]) { pantalla(); fpc_pantalla(); }
   }
 }
 
@@ -131,6 +131,23 @@ else if (pieza == "datos") {
     ["pernos", [for (pr = PERNOS) let (g = perno_geo(pr)) [pr[0], g]]],
     ["inserto_l", inserto_l], ["fijacion_pcb", fijacion_pcb], ["tornillo_largo", tornillo_largo],
     ["empujador", [BOOT, boot_varilla_y, boot_brazo_z, Z_PIEL - cap_juego]],
+    // cables de los joysticks: [nombre, pieza, conector, zona propia, salida [x, y], y de la boca,
+    //                           z de salida, z de la ranura, x del conector, [nombres de los tacos]]
+    ["cables_joy", [for (j = [[joy_izq, joy_giro_izq, "J6", "Joy_izq", "frontal_izquierda", "FPC_joy_izq"],
+                              [joy_der, joy_giro_der, "J7", "Joy_der", "frontal_derecha", "FPC_joy_der"]])
+      let (g = joy_cable(j[0], j[1], j[2]))
+      [j[3], j[4], j[2], j[5], g[0], g[1], g[2], g[3], comp(j[2])[3], [for (i = [0:len(joy_tacos) - 1]) str(j[3], "_taco", i + 1)]]]],
+    ["joy_fpc", [["largo", joy_fpc_largo], ["inserta", joy_fpc_inserta], ["ancho", joy_fpc_ancho], ["e", joy_fpc_e],
+                 ["radio_min", joy_fpc_radio_min]]],
+    // cola de la pantalla, adaptador y FFC
+    ["tft", [["x", TFT_X], ["ad", AD], ["ad_z0", AD_Z0], ["ad_ranura_z", AD_RANURA_Z], ["z_trasera", Z_PANTALLA_TRAS],
+             ["z_film", TFT_Z_FILM], ["ancha", [TFT_ANCHA_Y0, TFT_ANCHA_Y1]], ["cola_y0", TFT_COLA_Y0], ["punta_y", TFT_PUNTA_Y],
+             ["cuello", tft_cuello], ["ancha_largo", tft_ancha_largo], ["cola_largo", tft_cola_largo],
+             ["cola_flexible", tft_cola_flexible], ["cola_baja_max", tft_cola_baja_max], ["extremo", tft_extremo],
+             ["inserta", tft_inserta], ["cola_ancho", tft_cola_ancho], ["cola_puntos", cola_tft_puntos()],
+             ["ffc_puntos", ffc_puntos()], ["ffc_ancho", ffc_ancho], ["ffc_e", ffc_e], ["ffc_largo", ffc_largo],
+             ["ffc_largo_min", FFC_LARGO_MIN], ["ffc_r", [FFC_R1, FFC_R2]], ["ffc_z_tramo", FFC_Z_TRAMO],
+             ["ffc_y_v1", FFC_Y_V1], ["ffc_z_conector", ffc_z_conector], ["devkit", DEVKIT], ["j1_boca", FFC_Y_J1]]],
   ]);
   cube(1);
 }

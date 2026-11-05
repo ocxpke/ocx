@@ -12,9 +12,13 @@ comprueba con booleanas exactas (manifold3d):
   3. Choques entre piezas montadas (uniones, labios, capuchones...).
   4. Capuchones y empujador de BOOT: recorrido libre hacia abajo (debe
      llegar a pulsar), tope hacia arriba (no se salen) y que no se hundan.
-  5. Joysticks: el stick inclinado al máximo en 24 direcciones no toca nada.
+  5. Joysticks: el stick inclinado al máximo en 24 direcciones no toca nada, y el cable
+     llega a J6/J7 con una S (forma de una tira elástica empotrada en sus dos extremos)
+     con un radio de curvatura suficiente y sin tocar nada.
   6. Tornillos: no tocan componentes ni la antena y agarran lo suficiente.
   7. Voladizos de impresión (informativo).
+  8. Cola de la pantalla y alargador: el adaptador y el FFC no tocan la DevKit ni otros
+     componentes, y el FFC es lo bastante largo.
 
 Escribe carcasa/COMPROBACIONES.md y sale con código 1 si algo falla.
 """
@@ -110,6 +114,79 @@ def choca(a, b):
     i = a ^ b
     v = vol(i)
     return v, (i if v > TOL_VOL else None)
+
+
+def elastica(D, H, L, N=120):
+    """Forma de equilibrio de una tira elástica de largo L empotrada en horizontal en sus dos
+    extremos: sale de (0, 0) hacia +u y llega a (D, -H) también hacia +u. Minimiza la energía
+    de flexión con los extremos fijos (Newton sobre las condiciones de Lagrange, N tramos).
+    Devuelve (u, z, radio mínimo, inclinación máxima en grados) o None si no hay ninguna S
+    (el cable no llega o tendría que dar la vuelta)."""
+    if L <= math.hypot(D, H) + 1e-6:
+        return None
+    h = L / N
+    s = (np.arange(N) + 0.5) / N
+    base = math.atan2(H, D)
+    idx = np.arange(N)
+
+    def residuo(x):
+        phi, lu, lz = x[:N], x[N], x[N + 1]
+        p = np.concatenate([[0.0], phi, [0.0]])
+        F = (2 * p[1:-1] - p[:-2] - p[2:]) / h + lu * h * np.sin(phi) - lz * h * np.cos(phi)
+        return np.concatenate([F, [h * np.cos(phi).sum() - D, h * np.sin(phi).sum() + H]])
+
+    def jacobiana(x):
+        phi, lu, lz = x[:N], x[N], x[N + 1]
+        J = np.zeros((N + 2, N + 2))
+        J[idx, idx] = 2 / h + lu * h * np.cos(phi) + lz * h * np.sin(phi)
+        J[idx[1:], idx[:-1]] = -1 / h
+        J[idx[:-1], idx[1:]] = -1 / h
+        J[idx, N], J[idx, N + 1] = h * np.sin(phi), -h * np.cos(phi)
+        J[N, idx], J[N + 1, idx] = -h * np.sin(phi), h * np.cos(phi)
+        return J
+
+    for amp in (2.0, 1.6, 1.3, 2.4, 1.0, 2.8):
+        x = np.concatenate([-amp * base * (1 - np.cos(2 * math.pi * s)) / 2, [0.0, 0.0]])
+        for _ in range(80):
+            r = residuo(x)
+            nr = np.linalg.norm(r)
+            if nr < 1e-10:
+                break
+            try:
+                dx = np.linalg.solve(jacobiana(x), -r)
+            except np.linalg.LinAlgError:
+                break
+            a = 1.0
+            while a > 1e-4 and np.linalg.norm(residuo(x + a * dx)) >= nr:
+                a /= 2
+            x = x + a * dx
+        phi = x[:N]
+        if np.linalg.norm(residuo(x)) < 1e-8 and np.all(np.abs(phi) < math.pi):
+            u = np.concatenate([[0.0], np.cumsum(h * np.cos(phi))])
+            z = np.concatenate([[0.0], np.cumsum(h * np.sin(phi))])
+            curv = np.abs(np.diff(np.concatenate([[0.0], phi, [0.0]]))) / h
+            return u, z, 1 / max(curv.max(), 1e-9), math.degrees(-phi.min())
+    return None
+
+
+def tira(pts_yz, x, ancho, e):
+    """Volumen de una tira plana (cable o FFC) de `ancho` en x y grosor `e` alrededor de la
+    polilínea [(y KiCad, z), ...]."""
+    P = np.stack([-np.asarray([p[0] for p in pts_yz], float), np.asarray([p[1] for p in pts_yz], float)], 1)
+    keep = np.concatenate([[True], np.linalg.norm(np.diff(P, axis=0), axis=1) > 1e-6])
+    P = P[keep]
+    d = np.gradient(P, axis=0)
+    t = d / np.linalg.norm(d, axis=1, keepdims=True)
+    n = np.stack([-t[:, 1], t[:, 0]], 1) * (e / 2)
+    cs = mf.CrossSection([np.concatenate([P + n, (P - n)[::-1]]).tolist()], mf.FillRule.NonZero)
+    T = [[0, 0, 1, x - ancho / 2], [1, 0, 0, 0], [0, 1, 0, 0]]
+    return mf.Manifold.extrude(cs, ancho).transform(T)
+
+
+def invade(m, obstaculos):
+    """Nombres de los obstáculos [(nombre, manifold)] que `m` invade."""
+    bb = bbox(m)
+    return [n for n, o in obstaculos if solapan(bb, bbox(o)) and choca(m, o)[1] is not None]
 
 
 def recorrido_libre(movil, obstaculos, direccion, maximo, paso=0.02):
@@ -236,6 +313,90 @@ def main():
         anota('5. Joysticks (stick inclinado %g°)' % incl, f'{pieza} en ({pos[0]:g};{pos[1]:g})', peor is None,
               'libre en 24 direcciones' if peor is None else f'toca a {peor[0]:.0f}°: {peor[1]:.2f} mm³ en {peor[2]}')
 
+    # Cable de cada joystick: sale hacia el norte por el borde del módulo y entra en J6/J7 hacia
+    # el norte, con los contactos arriba. Su forma es la de una tira elástica empotrada en los dos
+    # extremos (la que toma sola). Tiene que llegar, no doblarse por debajo del radio mínimo y no
+    # tocar ninguna pieza, componente ni la placa.
+    jf = dict(datos['joy_fpc'])
+    sec5 = '5. Joysticks (stick inclinado %g°)' % incl
+    for nombre, pieza, conector, zona_propia, salida, yb, za, zb, xc, tacos in datos['cables_joy']:
+        D, H, x = salida[1] - yb, za - zb, salida[0]
+        excluir = {conector, zona_propia, nombre + '_base', nombre + '_cupula', *tacos}
+        zona_caja = caja([x - 8, yb - 8, x + 8, salida[1] + 8], -2, za + 8)
+        obst = [(n, M) for n, M in piezas.items() if solapan(bbox(M), bbox(zona_caja))]
+        obst += [(z[1], Z) for z, Z in zonas if z[1] not in excluir and solapan(bbox(Z), bbox(zona_caja))]
+
+        def evalua(largo):
+            r = elastica(D, H, largo - jf['inserta'])
+            if r is None:
+                return None
+            u, zz, rmin, ang = r
+            pts = [(salida[1] - a, za + b) for a, b in zip(u, zz)] + [(yb - jf['inserta'], zb)]
+            return rmin, ang, invade(tira(pts, x, jf['ancho'], jf['e']), obst), zz
+
+        def valido(largo):
+            r = evalua(largo)
+            return r is not None and r[0] >= jf['radio_min'] and not r[2]
+
+        nom = evalua(jf['largo'])
+        # largos que caben con el módulo donde está (barrido y luego bisección en los bordes)
+        cuerda = jf['inserta'] + math.hypot(D, H)
+        rejilla = [cuerda + 0.05 + 0.5 * k for k in range(int((jf['inserta'] + 60 - cuerda) / 0.5))]
+        oks = [valido(L) for L in rejilla]
+        tramos, ini = [], None
+        for L, ok in zip(rejilla + [None], oks + [False]):
+            if ok and ini is None:
+                ini = L
+            if not ok and ini is not None:
+                tramos.append([ini, prev])
+                ini = None
+            prev = L
+        rango = None
+        if tramos:
+            rango = list(next((t for t in tramos if t[0] <= jf['largo'] <= t[1]), tramos[0]))
+            malo, bueno = rango[0] - 0.5, rango[0]          # borde inferior
+            for _ in range(8):
+                m = (malo + bueno) / 2
+                malo, bueno = (malo, m) if valido(m) else (m, bueno)
+            rango[0] = bueno
+            bueno, malo = rango[1], rango[1] + 0.5          # borde superior
+            for _ in range(8):
+                m = (malo + bueno) / 2
+                bueno, malo = (m, malo) if valido(m) else (bueno, m)
+            rango[1] = bueno
+        txt_rango = (f'Con el módulo aquí caben de {rango[0]:.1f} a {rango[1]:.1f} mm' if rango
+                     else 'Con el módulo aquí no cabe ningún largo')
+        libre = jf['largo'] - jf['inserta']
+        if nom is None:
+            anota(sec5, f'cable {nombre} → {conector}', False,
+                  f'LARGO {jf["largo"]:g} mm ({libre:g} libres): no llega. Del borde del módulo a la boca hay '
+                  f'{math.hypot(D, H):.1f} mm en línea recta. {txt_rango}')
+        else:
+            rmin, ang, toca, zz = nom
+            ok = rmin >= jf['radio_min'] and not toca
+            anota(sec5, f'cable {nombre} → {conector}', ok,
+                  f'LARGO {jf["largo"]:g} mm ({libre:g} libres + {jf["inserta"]:g} dentro de {conector}): S de '
+                  f'{D:.2f} mm hacia el norte y {H:.2f} mm de bajada, radio mínimo {rmin:.1f} mm '
+                  f'(≥ {jf["radio_min"]:g}), inclinación máxima {ang:.0f}°, sin dar la vuelta (contactos arriba). '
+                  f'{txt_rango}' + (f'. Toca: {", ".join(sorted(set(toca)))}' if toca else ''))
+        desvio = abs(x - xc)
+        anota(sec5, f'cable {nombre}: entrada', desvio <= 0.3 and D > 0,
+              f'sale del borde norte del módulo (y = {salida[1]:.1f}) y entra recto en {conector}: '
+              f'desvío lateral {desvio:.2f} mm' if D > 0 else f'el módulo no queda al sur de {conector} (D = {D:.2f} mm)')
+        # tacos de espuma: sobre placa libre y sin tocar el cable
+        comp = [(z[1], Z) for z, Z in zonas if z[2] not in ('espuma', 'joystick', 'fpc', 'pcb', 'tht', 'antena')]
+        cable = tira([(salida[1] - a, za + b) for a, b in zip(*elastica(D, H, libre)[:2])] + [(yb - jf['inserta'], zb)],
+                     x, jf['ancho'], jf['e']) if nom else None
+        malos = []
+        for tn in tacos:
+            T = next(Z for z, Z in zonas if z[1] == tn)
+            g = invade(T, comp + ([('cable', cable)] if cable else []))
+            if g:
+                malos.append(f'{tn} toca {", ".join(g)}')
+        anota(sec5, f'tacos de {nombre}', not malos,
+              f'los {len(tacos)} tacos de espuma apoyan en placa sin componentes y no tocan el cable' if not malos
+              else '; '.join(malos))
+
     # ---------------------------------------------------------------- 6
     for nombre, p0, p1, d, tipo in datos['tornillos']:
         p0, p1 = np.array(p0), np.array(p1)
@@ -291,6 +452,47 @@ def main():
         anota('7. Voladizos de impresión (informativo)', os.path.basename(ruta), None,
               f'{vol_area:.0f} mm² hacia abajo con más de 45° (de ellos {float(areas[plano].sum()):.0f} mm² son '
               f'techos planos: puentes de agujeros y ranuras)')
+
+    # ---------------------------------------------------------------- 8
+    sec8 = '8. Cola de la pantalla y alargador'
+    t = dict(datos['tft'])
+    ad, x = t['ad'], t['x']
+    baja = t['z_film'] - t['ffc_z_conector']
+    anota(sec8, 'sin alargador', None,
+          f'la cola, doblada hacia atrás, baja como mucho {t["cola_baja_max"]:g} mm y de la trasera de la pantalla a la '
+          f'ranura de J1 hay {baja:.1f} mm (además J1 queda {t["j1_boca"] - t["ancha"][0]:.0f} mm al sur del final de la '
+          f'parte ancha): no llega')
+    AD = caja(ad, t['ad_z0'], t['z_trasera'])
+    componentes = [(z[1], Z) for z, Z in zonas if z[2] not in ('fpc', 'adaptador', 'pantalla', 'antena', 'espuma')]
+    toca = invade(AD, componentes + list(piezas.items()))
+    dk = t['devkit']
+    sep_dk = max(dk[0] - ad[2], ad[0] - dk[2], dk[1] - ad[3], ad[1] - dk[3])
+    debajo = [bbox(Z)[1][2] for n, Z in componentes
+              if n != 'PCB' and solapan((np.array([ad[0], -ad[3], -50]), np.array([ad[2], -ad[1], t['ad_z0']])), bbox(Z))]
+    alto = max(debajo) if debajo else 0.0
+    anota(sec8, 'adaptador', not toca and sep_dk > 0,
+          f'pegado a la trasera al final de la cola: x {ad[0]:.1f}–{ad[2]:.1f}, y {ad[1]:.1f}–{ad[3]:.1f}, '
+          f'z {t["ad_z0"]:.1f}–{t["z_trasera"]:.1f}; a {sep_dk:.1f} mm de la DevKit (x {dk[0]:.0f}–{dk[2]:.0f}, '
+          f'hasta 15.9 mm); debajo, lo más alto llega a z = {alto:.1f} ({t["ad_z0"] - alto:.1f} mm de aire)'
+          + (f'. Toca: {", ".join(toca)}' if toca else ''))
+    cola = tira(t['cola_puntos'], x, t['cola_ancho'], 0.15)
+    toca = invade(cola, [(n, Z) for n, Z in componentes + list(piezas.items())])
+    anota(sec8, 'cola hasta el adaptador', not toca,
+          f'llega plana por la trasera: {t["ancha_largo"]:g} mm de parte ancha + {t["cola_largo"]:g} mm de cola + '
+          f'{t["extremo"]:g} mm de extremo ({t["inserta"]:g} dentro del adaptador); baja '
+          f'{t["z_film"] - t["ad_ranura_z"]:.1f} mm hasta la boca en los últimos 8 mm (de {t["cola_flexible"]:g} flexibles)'
+          + (f'. Toca: {", ".join(toca)}' if toca else ''))
+    ffc = tira(t['ffc_puntos'], x, t['ffc_ancho'], t['ffc_e'])
+    excl = {'J1', 'Adaptador_TFT', 'FFC_TFT'}
+    toca = invade(ffc, [(z[1], Z) for z, Z in zonas if z[1] not in excl] + list(piezas.items()))
+    r1, r2 = t['ffc_r']
+    ok_largo = t['ffc_largo'] >= t['ffc_largo_min']
+    anota(sec8, 'FFC de 40 vías hasta J1', ok_largo and min(r1, r2) >= 1.0 and not toca,
+          f'sale del adaptador hacia el norte, vuelve bajo la pantalla a z = {t["ffc_z_tramo"]:.1f} y entra en J1 hacia el '
+          f'norte; vueltas de radio {r1:.1f} y {r2:.1f} mm. Hace falta un FFC de {t["ffc_largo_min"]:.0f} mm o más: con '
+          f'{t["ffc_largo"]:g} mm la vuelta junto al adaptador llega a y = {t["ffc_y_v1"] - r1:.1f}'
+          + ('' if ok_largo else ' (¡demasiado corto!)') + ('. No toca piezas, componentes ni la placa' if not toca
+                                                         else f'. Toca: {", ".join(sorted(set(toca)))}'))
 
     escribir_informe(datos)
     print(f'Comprobaciones: {len(FALLOS)} fallos')

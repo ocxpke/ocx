@@ -52,7 +52,7 @@ pantalla_alto   = 75.8;
 pantalla_grosor = 4.55;    // Newhaven: 120.7 x 75.8 x 4.55 mm. MÍDELA (si no, prueba 5)
 pantalla_cx     = 132.69;  // centrada en X (enunciado)
 // Posición vertical calculada (ver SUPUESTOS.md): borde inferior en y = 112.0
-//  - el pliegue del FPC queda al sur de las bocas de J1 (y 106.4) y J4 (y 107.7)
+//  - los pliegues de los FPC quedan al sur de las bocas de J1 (y 106.4) y J4 (y 107.7)
 //  - el marco superior deja sitio al agujero de RESET (y 31.5)
 //  - el marco inferior no toca las guías de SW6-SW9 (y > 117)
 pantalla_borde_inf = 112.0;
@@ -66,10 +66,33 @@ espuma_pantalla = 0.5;             // hueco para cinta de espuma entre pantalla 
 pisapantalla_e  = 2.0;             // grosor de las barras que sujetan la pantalla por detrás
 pisapantalla_ancho = 5.0;
 pisa_dx         = 9.7;    // distancia de cada barra al borde lateral de la pantalla
-// FPC: salen por el borde inferior y se doblan hacia atrás hasta J1 y J4
-fpc_tft_ancho   = 24.0;   // FPC de 40 pines (0.5 mm) + margen
+// FPC: salen por el borde inferior y rodean el canto hacia la trasera
+fpc_tft_ancho   = 24.0;   // cuello del FPC de 40 pines + margen (ranura del marco)
 fpc_ctp_ancho   = 10.0;   // FPC de 6 pines del táctil + margen
 fpc_pliegue     = 3.5;    // espacio para el pliegue bajo el borde inferior
+// FPC de la pantalla según el plano de Newhaven (SUPUESTOS.md, 24). Doblada hacia atrás, la cola
+// baja como mucho ~11 mm y la ranura de J1 queda a ~16 mm de la trasera: no llega. Se alarga con un
+// adaptador pegado a la trasera, al final de la cola, y un FFC de 40 vías hasta J1.
+tft_cuello      = 5.0;    // rodea el canto inferior
+tft_pliegue_r   = 1.3;    // radio del pliegue del cuello en el canto
+tft_ancha_largo = 21.0;   // parte ancha con componentes bajo blindaje: pegada a la trasera, no se dobla
+tft_ancha_ancho = 30.0;   // (supuesto) MÍDELO
+tft_ancha_e     = 1.5;    // grosor con componentes y blindaje (supuesto) MÍDELO
+tft_cola_largo  = 20.0;   // cola estrecha
+tft_cola_flexible = 13.0; // parte de la cola que se puede doblar
+tft_cola_ancho  = 21.0;   // 40 vías a 0.5 mm
+tft_cola_baja_max = 11.0; // lo que baja como mucho la cola doblada hacia atrás (plano de Newhaven)
+tft_extremo     = 5.5;    // extremo rígido
+tft_inserta     = 3.5;    // lo que entra en el conector
+// Alargador: adaptador FPC/FFC de 40 vías a 0.5 mm y FFC hasta J1
+adaptador       = [30.0, 12.0, 3.0];  // ancho (x), fondo en el sentido del cable (y), grueso (z)
+adaptador_ranura_z = 1.0; // altura de sus bocas sobre su cara inferior (conectores hacia la placa)
+ffc_largo       = 100;    // largo del FFC (el sobrante queda en la vuelta junto al adaptador)
+ffc_ancho       = 21.0;
+ffc_e           = 0.15;
+ffc_inserta     = 3.5;    // lo que entra en el adaptador y en J1
+ffc_tramo       = 1.0;    // tramo recto a la salida de cada conector antes de doblar
+ffc_z_conector  = 1.0;    // altura de la ranura de J1 sobre la placa
 
 // ---------------------------------------------------------------------
 // [Pulsadores] MLD-TS-6X6X5-J
@@ -133,24 +156,44 @@ joy_cap_alto   = 3.0;            // canto del capuchón
 joy_eje_d      = 4.0;
 joy_pivote     = 5.0;            // altura del centro de giro sobre la base
 joy_inclinacion = 20;            // inclinación máxima (grados)
-joy_agujeros   = [[-7.75, -7.25], [7.75, 7.25]];  // tornillos (coord. del módulo, mm)
+joy_agujeros   = [[-7.75, -7.25], [7.75, 7.25]];  // agujeros de las orejas (coord. del módulo, mm): ahí apoyan los postes
 joy_tornillo_d = 1.6;            // agujero de las orejas
-joy_piloto_d   = 1.2;            // agujero piloto en los postes (M1.4 o M1.6 autorroscante)
+joy_piloto_d   = 1.2;            // agujero piloto en los postes (opcional: M1.4 o M1.6 autorroscante con un cable más largo)
 joy_poste_d    = 5.3;
 joy_sobresale  = 5.0;            // altura del capuchón sobre la cara frontal
 joy_agujero_d  = 21.0;           // hueco circular en la cara frontal
-// posición del eje del stick (coordenadas KiCad) y giro del módulo
-joy_izq        = [40.5, 84.0];
-joy_der        = [216.5, 83.0];
-joy_giro_izq   = 0;
-joy_giro_der   = 0;
+// Posición del eje del stick (coordenadas KiCad) y giro del módulo.
+// Con giro 0 el cable sale hacia el sur; con 180, hacia el norte.
+// J6 y J7 tienen la boca al sur y contactos solo arriba, y el cable del joystick lleva los
+// contactos en la cara de la palanca: no puede doblarse 180°. Por eso cada módulo va al SUR
+// de su conector, girado 180°, y el cable baja hacia el norte con una S.
+//   x: la de J6 (37.5) y J7 (221.8), para que el cable entre recto
+//   y: borde norte del módulo en y = 96.7, entre la torreta (26;92)/(230;92) y el tubo del LED D2
+joy_izq        = [37.5, 105.7];
+joy_der        = [221.8, 105.7];
+joy_giro_izq   = 180;
+joy_giro_der   = 180;
+// Cable del joystick (FPC de 5 vías a 0.5 mm, contactos en la cara de la palanca)
+joy_fpc_largo  = 24.0;   // [LARGO] del borde del módulo a la punta. MÍDELO: comprobar.py dice qué largos caben
+joy_fpc_inserta = 3.0;   // lo que entra en J6/J7
+joy_fpc_ancho  = 3.5;    // ancho del cable (5 vías a 0.5 mm)
+joy_fpc_e      = 0.3;    // grosor (con el refuerzo de la punta)
+joy_fpc_z      = 0.0;    // altura de la salida sobre la cara inferior de la base del módulo
+joy_fpc_desplaz = 0.0;   // desvío lateral de la salida respecto al eje (con el cable hacia el norte, + = este)
+joy_fpc_z_conector = 1.0; // altura de la ranura de J6/J7 sobre la placa
+joy_fpc_radio_min = 1.0; // radio de curvatura mínimo que se admite
+// El cable no llega a J6/J7 con la placa abierta: el módulo viaja pegado a la placa sobre tres
+// tacos de espuma de doble cara y la frontal lo aprieta contra sus postes al cerrar.
+// Centros de los tacos respecto al eje (con el cable hacia el norte, -y = norte) y tamaño
+joy_tacos      = [[-6.5, -6.5], [6.5, -6.5], [0.0, 7.4]];
+joy_taco       = [4.0, 3.0];
 
 // ---------------------------------------------------------------------
 // [Altavoz] en J5
 // ---------------------------------------------------------------------
 altavoz_d      = 20.0;
 altavoz_alto   = 4.5;
-altavoz_pos    = [45.0, 116.0];
+altavoz_pos    = [40.0, 80.5];   // entre la cruceta y el joystick izquierdo (antes en (45;116), donde ahora va el joystick)
 altavoz_aro_e  = 1.6;
 rejilla_d      = 15.0;   // diámetro de la zona con agujeros
 rejilla_agujero = 1.6;
@@ -163,7 +206,7 @@ led_tipo       = "tubo";   // "tubo": agujero de 2 mm para un trozo de filamento
                            // "ventana": piel de 0.4 mm (filamento blanco o natural)
 led_agujero_d  = 2.0;
 led_ventana_e  = 0.4;
-led_tubo_pared = 2.0;
+led_tubo_pared = 1.5;      // 1.5 mm: deja 0.8 mm de aire a la esquina del joystick derecho
 
 // ---------------------------------------------------------------------
 // [USB-C J10]
@@ -263,6 +306,26 @@ ZONA_ANTENA = [min(PCB_MUESCA_ANTENA[0], ANTENA[0] - antena_margen), CAJA_CAV[1]
 
 // Joysticks: z de la base del módulo
 JOY_Z_BASE = ZF + joy_sobresale - joy_total_alto;
+JOY_Z_CABLE = JOY_Z_BASE + joy_fpc_z - joy_fpc_e / 2;   // eje del cable a la salida del módulo
+
+// Cola de la pantalla, adaptador y FFC (coordenadas KiCad; el cable va centrado en J1)
+TFT_X        = J1[3];
+TFT_Z_FILM   = Z_PANTALLA_TRAS - 0.1;                             // película del FPC sobre la trasera
+TFT_ANCHA_Y1 = PANT[3] - max(0, tft_cuello - PI * tft_pliegue_r);  // la parte ancha empieza tras el pliegue
+TFT_ANCHA_Y0 = TFT_ANCHA_Y1 - tft_ancha_largo;
+TFT_COLA_Y0  = TFT_ANCHA_Y0 - tft_cola_largo;                     // fin de la cola flexible
+TFT_PUNTA_Y  = TFT_COLA_Y0 - tft_extremo;                         // punta del extremo rígido
+AD = [TFT_X - adaptador[0] / 2, TFT_PUNTA_Y + tft_inserta - adaptador[1], TFT_X + adaptador[0] / 2, TFT_PUNTA_Y + tft_inserta];
+AD_Z0 = Z_PANTALLA_TRAS - adaptador[2];
+AD_RANURA_Z = AD_Z0 + adaptador_ranura_z;
+FFC_Z_TRAMO = (AD_RANURA_Z + ffc_z_conector) / 2;                 // tramo que vuelve bajo la pantalla
+FFC_R1 = (AD_RANURA_Z - FFC_Z_TRAMO) / 2;                         // vuelta junto al adaptador
+FFC_R2 = (FFC_Z_TRAMO - ffc_z_conector) / 2;                      // vuelta junto a J1
+FFC_Y_J1 = fab("J1")[3];                                          // boca de J1
+FFC_Y_V2 = FFC_Y_J1 + ffc_tramo;
+FFC_LARGO_MIN = 2 * ffc_inserta + 2 * ffc_tramo + PI * (FFC_R1 + FFC_R2) + (FFC_Y_V2 - (AD[1] - ffc_tramo));
+FFC_SOBRA = max(0, ffc_largo - FFC_LARGO_MIN) / 2;                 // la vuelta 1 se alarga hacia el norte
+FFC_Y_V1 = AD[1] - ffc_tramo - FFC_SOBRA;
 
 // Posición vertical de los capuchones
 CAP_Z_TUBO = Z_PIEL - cap_tubo_largo;          // extremo inferior del tubo guía

@@ -9,6 +9,7 @@ Carcasa imprimible en PLA para la placa principal (`hardware/ocxPrototype.kicad_
 | [MANUAL-MONTAJE.md](MANUAL-MONTAJE.md) | Piezas que imprimir (cantidad, orientación, tiempo y material), ajustes de la Finder, tornillería, montaje en 10 pasos, qué medir y qué parámetro cambiar |
 | [SUPUESTOS.md](SUPUESTOS.md) | Tabla de supuestos: de dónde sale cada medida y cómo comprobarla |
 | [COMPROBACIONES.md](COMPROBACIONES.md) | Resultado de la comprobación automática de interferencias (se regenera) |
+| [CAMBIOS.md](CAMBIOS.md) | Qué ha cambiado en esta versión y qué piezas reimprimir |
 
 ## Carpetas
 

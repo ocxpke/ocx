@@ -26,15 +26,21 @@ function zonas_extra() = [
   ["caja", "DevKit", "devkit", [DEVKIT[0], DEVKIT[1], DEVKIT[2], DEVKIT[3] + 1.0], DEVKIT_Z0, devkit_alto_total + margen_componentes],
   // Pantalla (toca la piel por delante: contacto sin volumen)
   ["caja", "Pantalla", "pantalla", PANT, Z_PANTALLA_TRAS, Z_PIEL],
-  // Pliegues de los FPC bajo el borde inferior de la pantalla
-  ["caja", "FPC_TFT_pliegue", "fpc", [J1[3] - fpc_tft_ancho / 2 + 1, PANT[3], J1[3] + fpc_tft_ancho / 2 - 1, PANT[3] + fpc_pliegue], 1.0, Z_PIEL - 0.6],
+  // FPC de la pantalla (40 pines): el cuello rodea el canto inferior, la parte ancha va pegada
+  // a la trasera y la cola llega plana hasta el adaptador; de ahí sale el FFC hasta J1
+  ["caja", "FPC_TFT_cuello", "fpc", [TFT_X - fpc_tft_ancho / 2 + 1, PANT[3], TFT_X + fpc_tft_ancho / 2 - 1, PANT[3] + fpc_pliegue], TFT_Z_FILM - 0.3, Z_PIEL - 0.6],
+  ["caja", "FPC_TFT_ancha", "fpc", [TFT_X - tft_ancha_ancho / 2, TFT_ANCHA_Y0, TFT_X + tft_ancha_ancho / 2, PANT[3]], Z_PANTALLA_TRAS - tft_ancha_e, Z_PANTALLA_TRAS],
+  ["caja", "FPC_TFT_cola", "fpc", [TFT_X - tft_cola_ancho / 2 - 0.5, TFT_PUNTA_Y, TFT_X + tft_cola_ancho / 2 + 0.5, TFT_ANCHA_Y0], AD_RANURA_Z - 0.5, Z_PANTALLA_TRAS],
+  ["caja", "Adaptador_TFT", "adaptador", AD, AD_Z0, Z_PANTALLA_TRAS],
+  ["caja", "FFC_TFT", "fpc", [TFT_X - ffc_ancho / 2 - 0.5, FFC_Y_V1 - FFC_R1 - 0.5, TFT_X + ffc_ancho / 2 + 0.5, FFC_Y_V2 + FFC_R2 + 0.5],
+                             ffc_z_conector - 0.5, AD_RANURA_Z + 0.5],
+  // FPC del táctil: se dobla hacia atrás en el canto inferior y baja hasta J4
   ["caja", "FPC_CTP_pliegue", "fpc", [J4[3] - fpc_ctp_ancho / 2 + 1, PANT[3], J4[3] + fpc_ctp_ancho / 2 - 1, PANT[3] + fpc_pliegue], 1.0, Z_PIEL - 0.6],
-  ["caja", "FPC_TFT_tramo", "fpc", [J1[3] - fpc_tft_ancho / 2 + 1, fab("J1")[3], J1[3] + fpc_tft_ancho / 2 - 1, PANT[3] + fpc_pliegue], 0.0, 2.5],
   ["caja", "FPC_CTP_tramo", "fpc", [J4[3] - fpc_ctp_ancho / 2 + 1, fab("J4")[3], J4[3] + fpc_ctp_ancho / 2 - 1, PANT[3] + fpc_pliegue], 0.0, 3.0],
-  // Paso del FPC de cada joystick: baja del módulo y entra en J6/J7 por el sur
-  ["caja", "FPC_joy_izq", "fpc", [J6[3] - 3, fab("J6")[3], J6[3] + 3, joy_izq[1] + joy_base[1] / 2 + 5], 0.5, JOY_Z_BASE],
-  ["caja", "FPC_joy_der", "fpc", [J7[3] - 3, fab("J7")[3], J7[3] + 3, joy_der[1] + joy_base[1] / 2 + 5], 0.5, JOY_Z_BASE],
-  // Joysticks (placa base y cúpula; el barrido del stick se comprueba aparte)
+  // Paso del cable de cada joystick: sale del borde norte del módulo y baja con una S hasta J6/J7
+  zona_cable_joy("FPC_joy_izq", joy_izq, joy_giro_izq, "J6"),
+  zona_cable_joy("FPC_joy_der", joy_der, joy_giro_der, "J7"),
+  // Joysticks (placa base, cúpula y tacos de espuma; el barrido del stick se comprueba aparte)
   each zonas_joystick("Joy_izq", joy_izq, joy_giro_izq),
   each zonas_joystick("Joy_der", joy_der, joy_giro_der),
   // Altavoz
@@ -51,7 +57,31 @@ function zonas_joystick(nombre, pos, giro) = let (
     hx = abs(joy_base[0] / 2 * cos(giro)) + abs(joy_base[1] / 2 * sin(giro)),
     hy = abs(joy_base[0] / 2 * sin(giro)) + abs(joy_base[1] / 2 * cos(giro)))
   [["caja", str(nombre, "_base"), "joystick", [pos[0] - hx, pos[1] - hy, pos[0] + hx, pos[1] + hy], JOY_Z_BASE, JOY_Z_BASE + joy_base_e],
-   ["cil", str(nombre, "_cupula"), "joystick", pos, joy_cuerpo_d / 2, JOY_Z_BASE + joy_base_e, JOY_Z_BASE + joy_cuerpo_alto]];
+   ["cil", str(nombre, "_cupula"), "joystick", pos, joy_cuerpo_d / 2, JOY_Z_BASE + joy_base_e, JOY_Z_BASE + joy_cuerpo_alto],
+   for (i = [0:len(joy_tacos) - 1]) ["caja", str(nombre, "_taco", i + 1), "espuma", taco_joy(pos, giro, i), 0, JOY_Z_BASE]];
+
+// Punto de un módulo dado respecto a su eje con el cable hacia el norte (giro 180)
+function joy_punto(pos, giro, rel) = let (t = giro - 180)
+  [pos[0] + rel[0] * cos(t) + rel[1] * sin(t), pos[1] - rel[0] * sin(t) + rel[1] * cos(t)];
+// Huella de un taco de espuma (caja KiCad; los giros son múltiplos de 90°)
+function taco_joy(pos, giro, i) = let (c = joy_punto(pos, giro, joy_tacos[i]),
+    t = (round(giro / 90) % 2 == 0) ? joy_taco : [joy_taco[1], joy_taco[0]]) caja_centro(c, t);
+// Salida del cable: punto del borde del módulo (KiCad) por donde sale (con giro 180, el borde norte)
+function joy_salida(pos, giro) = joy_punto(pos, giro, [joy_fpc_desplaz, -joy_base[1] / 2]);
+// Geometría de la S: [salida [x, y], y de la boca, z de salida, z de la ranura, recorrido D, bajada H]
+function joy_cable(pos, giro, ref) = let (a = joy_salida(pos, giro), yb = fab(ref)[3])
+  [a, yb, JOY_Z_CABLE, joy_fpc_z_conector, a[1] - yb, JOY_Z_CABLE - joy_fpc_z_conector];
+// Zona que no puede invadir ninguna pieza: de la boca del conector al borde del módulo
+function zona_cable_joy(nombre, pos, giro, ref) = let (g = joy_cable(pos, giro, ref), a = g[0])
+  ["caja", nombre, "fpc", [a[0] - joy_fpc_ancho / 2 - 1, min(g[1], a[1]) - 0.5, a[0] + joy_fpc_ancho / 2 + 1, max(g[1], a[1]) + 1.0],
+   0.2, JOY_Z_BASE + 1.0];
+// Eje de la S como lista de [y KiCad, z] (dos arcos tangentes: la forma relajada del cable; la
+// comprobación usa la elástica real en scripts/comprobar.py)
+function joy_cable_puntos(pos, giro, ref, n = 16) = let (g = joy_cable(pos, giro, ref), d = g[4], h = g[5],
+    th = 2 * atan2(h, d), r = d / (2 * sin(th)), y0 = g[0][1], za = g[2], zb = g[3])
+  concat([for (i = [0:n]) let (t = th * i / n) [y0 - r * sin(t), za - r + r * cos(t)]],
+         [for (i = [n:-1:0]) let (t = th * i / n) [y0 - d + r * sin(t), zb + r - r * cos(t)]],
+         [[g[1] - joy_fpc_inserta, zb]]);
 
 // Zona de la antena: nada de piezas entre el suelo interior y la piel
 function zona_antena() = ["caja", "ANTENA", "antena", ZONA_ANTENA, Z_SUELO_INT, Z_PIEL];
@@ -70,7 +100,7 @@ COLORES = [
   ["zocalo", [0.1, 0.1, 0.1]], ["conector", [0.95, 0.95, 0.9]], ["tht", [0.7, 0.7, 0.7]],
   ["devkit", [0.1, 0.25, 0.55]], ["pantalla", [0.05, 0.05, 0.08]], ["fpc", [0.9, 0.55, 0.1]],
   ["joystick", [0.2, 0.2, 0.22]], ["altavoz", [0.55, 0.55, 0.6]], ["usb", [0.3, 0.3, 0.3]],
-  ["pcb", [0.05, 0.4, 0.2]], ["antena", [1, 0.2, 0.2]],
+  ["pcb", [0.05, 0.4, 0.2]], ["antena", [1, 0.2, 0.2]], ["adaptador", [0.1, 0.45, 0.25]], ["espuma", [0.95, 0.85, 0.3]],
 ];
 function color_de(g) = let (i = search([g], COLORES, 1, 0)[0]) i == undef ? [0.5, 0.5, 0.5] : COLORES[i][1];
 
@@ -111,15 +141,79 @@ module electronica(con_pantalla = true) {
                                    DEVKIT_CX + devkit_modulo[0] / 2, DEVKIT_PUNTA + devkit_modulo[1]],
                                   DEVKIT_Z0 + devkit_pcb_e, devkit_alto_total);
   color([0.1, 0.1, 0.12]) cajaK(ANTENA, DEVKIT_Z0 + devkit_pcb_e, DEVKIT_Z0 + devkit_pcb_e + 0.8);
-  if (con_pantalla) pantalla();
+  if (con_pantalla) { pantalla(); fpc_pantalla(); }
   for (j = [[joy_izq, joy_giro_izq], [joy_der, joy_giro_der]]) joystick(j[0], j[1]);
+  cables_joystick();
   color([0.55, 0.55, 0.6]) enK(altavoz_pos[0], altavoz_pos[1], Z_PIEL - altavoz_alto) cylinder(d = altavoz_d, h = altavoz_alto, $fn = fn);
-  // FPC
-  color([0.9, 0.55, 0.1]) for (f = [[J1[3], fpc_tft_ancho - 2, fab("J1")[3] - 2], [J4[3], fpc_ctp_ancho - 2, fab("J4")[3] - 2]]) {
-    cajaK([f[0] - f[1] / 2, f[2], f[0] + f[1] / 2, PANT[3] + 1.5], 1.0, 1.15);
-    cajaK([f[0] - f[1] / 2, PANT[3] + 1.4, f[0] + f[1] / 2, PANT[3] + 1.55], 1.0, Z_PANTALLA_TRAS + 0.5);
-    cajaK([f[0] - f[1] / 2, PANT[3] - 3, f[0] + f[1] / 2, PANT[3] + 1.55], Z_PANTALLA_TRAS + 0.35, Z_PANTALLA_TRAS + 0.5);
-  }
+  fpc_tactil();
+}
+
+// FPC del táctil: baja doblado desde el canto inferior de la pantalla hasta J4
+module fpc_tactil() color([0.9, 0.55, 0.1]) let (x = J4[3], w = fpc_ctp_ancho - 2, y0 = fab("J4")[3] - 2) {
+  cajaK([x - w / 2, y0, x + w / 2, PANT[3] + 1.5], 1.0, 1.15);
+  cajaK([x - w / 2, PANT[3] + 1.4, x + w / 2, PANT[3] + 1.55], 1.0, Z_PANTALLA_TRAS + 0.5);
+  cajaK([x - w / 2, PANT[3] - 3, x + w / 2, PANT[3] + 1.55], Z_PANTALLA_TRAS + 0.35, Z_PANTALLA_TRAS + 0.5);
+}
+
+// Tira plana a lo largo de una polilínea [[y KiCad, z], ...], centrada en x (para los renders)
+module tira(pts, x, ancho, e) for (i = [0:len(pts) - 2]) hull() for (p = [pts[i], pts[i + 1]])
+  translate([x - ancho / 2, -p[0] - 0.005, p[1] - e / 2]) cube([ancho, 0.01, e]);
+
+// Cable de cada joystick: S desde el borde norte del módulo hasta J6/J7
+module cables_joystick() color([0.85, 0.6, 0.2])
+  for (j = [[joy_izq, joy_giro_izq, "J6"], [joy_der, joy_giro_der, "J7"]])
+    tira(joy_cable_puntos(j[0], j[1], j[2]), joy_cable(j[0], j[1], j[2])[0][0], joy_fpc_ancho, joy_fpc_e);
+
+// Tacos de espuma bajo los módulos de los joysticks
+module tacos_joystick(c = [0.95, 0.85, 0.3]) color(c)
+  for (j = [[joy_izq, joy_giro_izq], [joy_der, joy_giro_der]], i = [0:len(joy_tacos) - 1]) cajaK(taco_joy(j[0], j[1], i), 0, JOY_Z_BASE);
+
+// Eje del FFC del alargador como [[y KiCad, z], ...]: sale del adaptador hacia el norte, vuelve
+// bajo la pantalla hacia el sur y entra en J1 hacia el norte
+function ffc_puntos(n = 12) = concat(
+  [[AD[1] + ffc_inserta, AD_RANURA_Z], [FFC_Y_V1, AD_RANURA_Z]],
+  [for (i = [1:n]) let (t = 180 * i / n) [FFC_Y_V1 - FFC_R1 * sin(t), AD_RANURA_Z - FFC_R1 + FFC_R1 * cos(t)]],
+  [for (i = [0:n]) let (t = 180 * i / n) [FFC_Y_V2 + FFC_R2 * sin(t), FFC_Z_TRAMO - FFC_R2 + FFC_R2 * cos(t)]],
+  [[FFC_Y_J1 - ffc_inserta, ffc_z_conector]]);
+
+// Cola de la pantalla: plana por la trasera y con una S corta hasta la boca del adaptador
+function cola_tft_puntos(n = 10) = let (y1 = TFT_COLA_Y0 + 8, dz = TFT_Z_FILM - AD_RANURA_Z) concat(
+  [[TFT_ANCHA_Y0, TFT_Z_FILM]],
+  [for (i = [0:n]) let (t = i / n) [y1 - 8 * t, AD_RANURA_Z + dz * (1 + cos(180 * t)) / 2]],
+  [[TFT_PUNTA_Y, AD_RANURA_Z]]);
+
+// FPC de la pantalla con el alargador, por partes (los cortes de los renders las colorean por separado)
+AMBAR = [0.9, 0.55, 0.1];
+PLATA = [0.75, 0.76, 0.8];
+AZUL_REFUERZO = [0.2, 0.35, 0.75];
+VERDE_ADAPTADOR = [0.1, 0.45, 0.25];
+NEGRO_CONECTOR = [0.12, 0.12, 0.12];
+COLOR_FFC = [0.95, 0.75, 0.35];
+TFT_ANCHA = [TFT_X - tft_ancha_ancho / 2, TFT_ANCHA_Y0, TFT_X + tft_ancha_ancho / 2, TFT_ANCHA_Y1];
+// cuello (rodea el canto inferior y vuelve por la trasera), película de la parte ancha y cola
+module fpc_tft_flexible() {
+  tira(concat([for (i = [0:12]) let (t = 180 * i / 12)
+      [PANT[3] + tft_pliegue_r * sin(t), TFT_Z_FILM + tft_pliegue_r + tft_pliegue_r * cos(t)]], [[TFT_ANCHA_Y1, TFT_Z_FILM]]),
+    TFT_X, fpc_tft_ancho - 2, 0.15);
+  cajaK(TFT_ANCHA, TFT_Z_FILM - 0.1, TFT_Z_FILM + 0.05);
+  tira(cola_tft_puntos(), TFT_X, tft_cola_ancho, 0.15);
+}
+module fpc_tft_blindaje() cajaK(encoge(TFT_ANCHA, 1.5), Z_PANTALLA_TRAS - tft_ancha_e, TFT_Z_FILM - 0.1);
+module fpc_tft_refuerzo() tira([[TFT_COLA_Y0, AD_RANURA_Z], [TFT_PUNTA_Y, AD_RANURA_Z]], TFT_X, tft_cola_ancho, 0.3);
+// adaptador: placa con un conector en cada canto largo
+module adaptador_tft_placa() cajaK(AD, AD_Z0 + 2.0, Z_PANTALLA_TRAS);
+module adaptador_tft_conectores() for (y = [[AD[1], AD[1] + 4.5], [AD[3] - 4.5, AD[3]]])
+  cajaK([AD[0] + 1.5, y[0], AD[2] - 1.5, y[1]], AD_Z0, AD_Z0 + 2.0);
+// FFC hasta J1 (sin él, solo el arranque que sale del adaptador)
+module ffc_tft(con_ffc = true) tira(con_ffc ? ffc_puntos() : [[AD[1] + ffc_inserta, AD_RANURA_Z], [AD[1] - 8, AD_RANURA_Z]],
+                                    TFT_X, ffc_ancho, ffc_e);
+module fpc_pantalla(con_ffc = true) {
+  color(AMBAR) fpc_tft_flexible();
+  color(PLATA) fpc_tft_blindaje();
+  color(AZUL_REFUERZO) fpc_tft_refuerzo();
+  color(VERDE_ADAPTADOR) adaptador_tft_placa();
+  color(NEGRO_CONECTOR) adaptador_tft_conectores();
+  color(COLOR_FFC) ffc_tft(con_ffc);
 }
 
 module pantalla() {
